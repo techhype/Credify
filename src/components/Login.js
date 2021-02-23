@@ -17,6 +17,10 @@ const Login = (props) => {
     axios.post(url,usercred)
       .then(function (response) {
         console.log(JSON.stringify(response.data.user));
+
+        // localstorage 
+        window.localStorage.setItem('token',response.data.token);
+        props.history.push('/dashboard');
       })
       .catch(function (error) {
         console.log(error.response.status,error.response.data.email);

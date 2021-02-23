@@ -3,6 +3,7 @@ import { BrowserRouter as Router,Switch, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
+import Upload from './components/Upload';
 
   
 const createRoutes = () => (
@@ -16,6 +17,9 @@ const createRoutes = () => (
         </Route>
         <Route path="/dashboard">
           <Dashboard />
+        </Route>
+        <Route path="/upload">
+          <Upload />
         </Route>
         <Route path="/">
           <Login />
