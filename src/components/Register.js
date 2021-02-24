@@ -1,14 +1,17 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
+import { useHistory } from "react-router-dom";
 import '../index.css'
 import '../css/Button.css'
-import { Redirect } from 'react-router-dom'
 
 const Register = () => {
   const [name,setName] = useState('');
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   const [error,setError] = useState('');
+
+  const history = useHistory();
+
   const handleSubmit = (e) =>{
     
     e.preventDefault();
@@ -19,6 +22,7 @@ const Register = () => {
     axios.post(url,usercred)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
+        history.push('/login');
       })
       .catch(function (error) {
         console.log(error.response.status,error.response.data.email);

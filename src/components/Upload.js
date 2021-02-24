@@ -33,11 +33,6 @@ const Upload = () => {
     // const usercred = {name, email, password};
     console.log('upload Button clicked',userCertDetails);
     
-    var options = {
-      headers: { 
-        'Authorization': 'TOKEN 14293db7d6a66547d9cc4d661a690c95ff82248482563592f92099c755c8fc81'
-      }
-    };
     const formData = new FormData();
     formData.append("pdf", userCertDetails.certFile);
     formData.append("csp", userCertDetails.csp);
@@ -49,6 +44,11 @@ const Upload = () => {
     formData.append("visibility", userCertDetails.visibility);
     
     const url = "http://35.193.13.243:8000/certificates"; 
+    var options = {
+      headers: { 
+        'Authorization': `TOKEN ${localStorage.getItem('token')}` 
+      }
+    };
 
     axios.post(url,formData,options)
       .then(function (response) {

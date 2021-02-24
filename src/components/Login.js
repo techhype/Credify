@@ -1,26 +1,31 @@
 import React,{useState} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import { useHistory } from "react-router-dom";
+
 
 import '../css/Button.css'
 import '../index.css'
 
-const Login = (props) => {
+const Login = () => {
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   const [error,setError] = useState('');
 
+  const history = useHistory();
+
+
   const handleSubmit = async(e) =>{
     e.preventDefault();
     const usercred ={email,password};
-    const url= "http://35.223.107.206:8000/login";
+    const url= "http://35.193.13.243:8000/login";
     axios.post(url,usercred)
       .then(function (response) {
         console.log(JSON.stringify(response.data.user));
 
         // localstorage 
         window.localStorage.setItem('token',response.data.token);
-        props.history.push('/dashboard');
+        history.push('/dashboard');
       })
       .catch(function (error) {
         console.log(error.response.status,error.response.data.email);
