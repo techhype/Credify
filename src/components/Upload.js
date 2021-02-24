@@ -1,8 +1,10 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
+
 import '../index.css'
 import '../css/Button.css'
-
+import Toggle from '../utils/Toggle';
+import CustomSelect from '../utils/CustomSelect';
 
 const Upload = () => {
   const [csproviders, setcsproviders] = useState(["GCP", "AWS", "Azure"])
@@ -17,21 +19,26 @@ const Upload = () => {
       visibility: false,
       certFile: null
     });
+
+  const handleToggle = (toggleResult) => {
+    setuserCertDetails({...userCertDetails,visibility:toggleResult});
+  }
+  const handleCustomSelect = (csp,certlevel,certname) => {
+    setuserCertDetails({...userCertDetails,csp,certlevel,certname});
+  }
+
   const handleSubmit = (e) =>{
     
     e.preventDefault();
     // const usercred = {name, email, password};
     console.log('upload Button clicked',userCertDetails);
     
-    var config = {
-      method: 'post',
-      url: 'http://35.223.107.206:8000/certificates',
+    var options = {
       headers: { 
-        'Content-Type': 'multipart/form-data',
-        'Authorization': 'TOKEN 1b6627914bf72f6f8c3fde1659668fcca2aae3fa32fb3e389d89b6aaec93a26b'
+        'Authorization': 'TOKEN 14293db7d6a66547d9cc4d661a690c95ff82248482563592f92099c755c8fc81'
       }
     };
-    var formData = new FormData();
+    const formData = new FormData();
     formData.append("pdf", userCertDetails.certFile);
     formData.append("csp", userCertDetails.csp);
     formData.append("level", userCertDetails.certlevel);
@@ -40,12 +47,15 @@ const Upload = () => {
     formData.append("certified_date", userCertDetails.dateofcert);
     formData.append("expiry_date", userCertDetails.expiry);
     formData.append("visibility", userCertDetails.visibility);
-    axios(config,formData)
+    
+    const url = "http://35.193.13.243:8000/certificates"; 
+
+    axios.post(url,formData,options)
       .then(function (response) {
         console.log(response);
       })
       .catch(function (error) {
-        console.log(error.response.status,error.response.data.email);
+        console.log(error.response.status,error.response.data);
         // Object.entries(error.response.data).forEach(([key,value]) => {
         //   setError(`${key.charAt(0).toUpperCase() + key.slice(1)} : ${value[0]}`);
         // })
@@ -56,24 +66,7 @@ const Upload = () => {
     <div className="container">
       <h2>Upload Certificates</h2>
       <form onSubmit={handleSubmit}>
-        <select
-          onChange={e => setuserCertDetails({...userCertDetails,csp:e.target.value})} >
-          {
-            csproviders.map((provider, key) => <option key={key} value={provider}>{provider}</option>)
-          }
-        </select>
-        <input 
-          type='text' 
-          name='Certification Level' 
-          value={userCertDetails.certlevel}
-          placeholder='Certification Level'  
-          onChange={(e)=>setuserCertDetails({...userCertDetails,certlevel:e.target.value})}/>
-        <input 
-          type='text' 
-          name='Certification Name' 
-          value={userCertDetails.certname}
-          placeholder='Certification Name' 
-          onChange={(e)=>setuserCertDetails({...userCertDetails,certname:e.target.value})}/>
+        <CustomSelect setCert={handleCustomSelect}/>
         <input 
           type='text' 
           name='Certification ID' 
@@ -93,6 +86,7 @@ const Upload = () => {
           placeholder='Expiry Date of Certification' 
           onChange={(e)=>setuserCertDetails({...userCertDetails,expiry:e.target.value})}/>
         <input type="file" name="file" onChange={(e)=>{setuserCertDetails({...userCertDetails,certFile:e.target.files[0]})}}/>
+        <Toggle name="Private" setVisibility={handleToggle} />
         <input type='submit' value='Upload' className='submit'/>
       </form>
       {/* {
