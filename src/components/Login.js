@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
 
-
 import '../css/login.css'
 import '../css/Button.css'
 import '../index.css'
@@ -13,20 +12,19 @@ const Login = () => {
   const [password,setPassword] = useState('');
   const [error,setError] = useState('');
 
-  const history = useHistory();
-
-
+  let history = useHistory();
   const handleSubmit = async(e) =>{
     e.preventDefault();
     const usercred ={email,password};
     const url= "https://credifybe.tk/login";
     axios.post(url,usercred)
       .then(function (response) {
+        console.log(response.status);
         console.log(JSON.stringify(response.data.user));
 
         // localstorage 
         window.localStorage.setItem('token',response.data.token);
-        history.push('/dashboard');
+        history.push('/dashboard')  
       })
       .catch(function (error) {
         console.log(error.response.status,error.response.data.email);

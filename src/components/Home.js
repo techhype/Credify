@@ -1,14 +1,12 @@
-import React,{useEffect} from 'react'
+import React from 'react'
+import {isLogin} from '../utils/index'
 import Login from './Login';
 import Dashboard from './Dashboard';
-import { useHistory } from "react-router-dom";
 
 
 
 const Home = () => {
-  const token = window.localStorage.getItem('token') || null;
-
-  if(token)
+  if(isLogin())
     return <Dashboard/>;
   else 
     return <Login/>;

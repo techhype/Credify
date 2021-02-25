@@ -1,21 +1,15 @@
 import React,{useState,useEffect} from 'react'
-import { useHistory } from "react-router-dom";
-import {Link} from 'react-router-dom'
+import {isLogin,logout} from '../utils/index'
+import {Link,useHistory} from 'react-router-dom'
 import axios from 'axios'
 
 import '../css/Button.css'
 import '../index.css'
 
 const Home = () => {
-  // const [token,setToken] = useState();
-  const history = useHistory();
-
-
-  // useEffect(()=>{
-  //   window.addEventListener("popstate", () => {
-  //     history.go(1);
-  //   });
-  // },[]);
+  const [isLoggedin,setIsLoggedin] = useState(isLogin()); 
+  
+  let history = useHistory();
 
   const handleSubmit = () => {
     console.log('Logout button clicked');
@@ -32,7 +26,8 @@ const Home = () => {
     axios.post(url,null,options)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
-        localStorage.removeItem('token');
+        setIsLoggedin(false);
+        logout();
         history.push("/login"); 
       })
       .catch(function (error) {
