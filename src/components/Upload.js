@@ -1,13 +1,16 @@
 import React,{useState,useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
 
 import '../index.css'
 import '../css/Button.css'
+import '../css/upload.css'
+
+
 import Toggle from '../utils/Toggle';
 import CustomSelect from '../utils/CustomSelect';
 
 const Upload = () => {
-  const [csproviders, setcsproviders] = useState(["GCP", "AWS", "Azure"])
   const [userCertDetails,setuserCertDetails] = useState(
     {
       csp: '',
@@ -43,7 +46,7 @@ const Upload = () => {
     formData.append("expiry_date", userCertDetails.expiry);
     formData.append("visibility", userCertDetails.visibility);
     
-    const url = "http://35.193.13.243:8000/certificates"; 
+    const url = "https://credifybe.tk/certificates"; 
     var options = {
       headers: { 
         'Authorization': `TOKEN ${localStorage.getItem('token')}` 
@@ -67,7 +70,8 @@ const Upload = () => {
       <h2>Upload Certificates</h2>
       <form onSubmit={handleSubmit}>
         <CustomSelect setCert={handleCustomSelect}/>
-        <input 
+        <input
+          className='tinput' 
           type='text' 
           name='Certification ID' 
           value={userCertDetails.certid}
@@ -87,7 +91,13 @@ const Upload = () => {
           onChange={(e)=>setuserCertDetails({...userCertDetails,expiry:e.target.value})}/>
         <input type="file" name="file" onChange={(e)=>{setuserCertDetails({...userCertDetails,certFile:e.target.files[0]})}}/>
         <Toggle name="Private" setVisibility={handleToggle} />
-        <input type='submit' value='Upload' className='submit'/>
+        <input type='submit' value='Upload' className='submit upload'/>
+        <div className="cancel">
+          <Link to="/dashboard">
+            <button type="button" className='cancelbtn'>Cancel</button>
+          </Link>
+        </div>
+
       </form>
       {/* {
         error ? <p style={{color:"red"}}> {error} </p> : ''

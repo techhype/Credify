@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useHistory } from "react-router-dom";
 import '../index.css'
 import '../css/Button.css'
+import '../css/login.css'
 
 const Register = () => {
   const [name,setName] = useState('');
@@ -18,7 +19,7 @@ const Register = () => {
     const usercred = {name, email, password};
     console.log('Register Button clicked');
     
-    const url= "http://35.223.107.206:8000/register";
+    const url= "https://credifybe.tk/register";
     axios.post(url,usercred)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
@@ -34,31 +35,36 @@ const Register = () => {
   
   return (
     <div className="container">
-      <h2>Register Screen</h2>
+      <div className="card card-3">
+      <h2>Create your Credify account</h2>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="Name">Name</label>
         <input 
+          className='tinput' 
           type='text' 
           name='Name' 
           value={name}
-          placeholder="Name" 
           onChange={(e)=>setName(e.target.value)}/>
+        <label htmlFor="Email">Email</label>
         <input 
+          className='tinput' 
           type='email' 
           name='Email' 
           value={email}
-          placeholder="Email" 
           onChange={(e)=>setEmail(e.target.value)}/>
-        <input 
+        <label htmlFor="Password">Password</label>
+        <input  
+          className='tinput'
           type='password' 
           name='Password' 
           value={password}
-          placeholder="Password" 
           onChange={(e)=>setPassword(e.target.value)}/>
         <input type='submit' value='Register' className='submit'/>
       </form>
       {
         error ? <p style={{color:"red"}}> {error} </p> : ''
       }
+      </div>
     </div>
 
   );

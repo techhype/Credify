@@ -11,11 +11,11 @@ const Home = () => {
   const history = useHistory();
 
 
-  useEffect(()=>{
-    window.addEventListener("popstate", () => {
-      history.go(1);
-    });
-  },[]);
+  // useEffect(()=>{
+  //   window.addEventListener("popstate", () => {
+  //     history.go(1);
+  //   });
+  // },[]);
 
   const handleSubmit = () => {
     console.log('Logout button clicked');
@@ -28,7 +28,7 @@ const Home = () => {
       }
     };
 
-    const url = 'http://35.193.13.243:8000/logout'
+    const url = 'https://credifybe.tk/logout'
     axios.post(url,null,options)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
@@ -47,6 +47,9 @@ const Home = () => {
       <h1>HomeScreen</h1>
       <Link to="/upload">Upload Certificate</Link>
       <input type='button' onClick={handleSubmit} className='submit' value='Logout' />
+      <Link to="/profile">
+        <button type="button" className='submit'>My Certificates</button>
+      </Link>
     </div>
   );
 }

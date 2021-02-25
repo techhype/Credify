@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import '../css/cselect.css'
 
 
 const CustomSelect = (props) => {
@@ -129,25 +130,25 @@ const CustomSelect = (props) => {
 
   return (
     <div>
-        <div>  
-          <select onChange={handleCSPSelect}> 
-            <option defaultValue value> -- select an option -- </option>
+        <div className="cselect">  
+          <select onChange={handleCSPSelect} required> 
+            <option className='disabled' defaultValue value>  select an option  </option>
             <option>GCP</option> 
             <option>AWS</option> 
             <option>Azure</option> 
           </select> 
         </div> 
-        <div> 
-          <select onChange={handleLevelSelect}> 
-          <option defaultValue value> -- select an option -- </option>
+        <div className="cselect"> 
+          <select onChange={handleLevelSelect} required> 
+          <option className='disabled' defaultValue value>  select an option  </option>
             { 
               certlevels 
             } 
           </select> 
         </div> 
-        <div> 
-          <select onChange={handleCertDetails}> 
-          <option defaultValue value> -- select an option -- </option>
+        <div className="cselect"> 
+          <select onChange={handleCertDetails} required> 
+          <option className='disabled' defaultValue value>  select an option  </option>
             { 
               certnames 
             } 

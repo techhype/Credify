@@ -5,6 +5,7 @@ import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import Home from './components/Home';
 import Upload from './components/Upload';
+import Profile from './components/Profile';
 
   
 const createRoutes = () => (
@@ -21,6 +22,9 @@ const createRoutes = () => (
         </Route>
         <Route path="/upload">
           <Upload />
+        </Route>
+        <Route path="/profile">
+          <Profile />
         </Route>
         <Route path="/">
           <Home />

@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useHistory } from "react-router-dom";
 
 
+import '../css/login.css'
 import '../css/Button.css'
 import '../index.css'
 
@@ -18,7 +19,7 @@ const Login = () => {
   const handleSubmit = async(e) =>{
     e.preventDefault();
     const usercred ={email,password};
-    const url= "http://35.193.13.243:8000/login";
+    const url= "https://credifybe.tk/login";
     axios.post(url,usercred)
       .then(function (response) {
         console.log(JSON.stringify(response.data.user));
@@ -39,26 +40,32 @@ const Login = () => {
 
   return (
     <div className="container">
-      <h2>Login Screen</h2>
+      <div className="card card-3">
+      <h2>Sign in to your account</h2>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="Email">Email</label>
         <input 
+          className='tinput'
           type='email' 
           name='Email' 
           value={email}
-          placeholder="Email" 
-          onChange={(e)=>setEmail(e.target.value)}/>
+          onChange={(e)=>setEmail(e.target.value)}
+          required/>
+        <label htmlFor="Password">Password</label>
         <input 
+          className='tinput'
           type='password' 
           name='Password' 
           value={password}
-          placeholder="Password" 
-          onChange={(e)=>setPassword(e.target.value)}/>
+          onChange={(e)=>setPassword(e.target.value)}
+          required/>
         <input type='submit' value='Sign In' className='submit'/>
       </form>
       <Link to="/register">Create Account</Link>
       {
         error ? <p style={{color:"red"}}> {error} </p> : ''
       }
+      </div>
     </div>
   );
 }

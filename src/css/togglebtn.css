@@ -1,8 +1,12 @@
-div{
-  font-family: 'Inter-Medium',sans-serif;
-}
 
+p{
+  display: inline-block;
+}
 .toggle-btn{
+  display: inline-block;
+  margin-left:30px;
+  position:relative;
+  top:5px;
   width:32px;
   height:16px;
   background-color:gray;

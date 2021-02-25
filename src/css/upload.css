@@ -1,0 +1,36 @@
+input[type=date]{
+  width:250px;
+  height:38px;
+  padding: 8px 14px;
+  outline: none;
+  border: 1px solid #DDDDDD;
+  border-radius:5px;
+}
+
+input[type="date"]:in-range::-webkit-datetime-edit-year-field, 
+input[type="date"]:in-range::-webkit-datetime-edit-month-field, 
+input[type="date"]:in-range::-webkit-datetime-edit-day-field, 
+input[type="date"]:in-range::-webkit-datetime-edit-text { 	color: transparent; }
+
+.upload{
+  display: inline-block;
+  margin-left:20px;
+}
+.cancel{
+  display: inline-block;
+  margin-left:100px;
+}
+.cancelbtn{
+  background-color:#fff;
+  color:red;
+  border:1px solid red;
+  border-radius:5px;
+  font-size:14px;
+  padding-left:10px;
+  padding-right:10px;
+  padding-top:4px;
+  padding-bottom:4px;
+}
+.cancelbtn:focus{
+  outline: none;
+}

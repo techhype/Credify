@@ -1,0 +1,17 @@
+select{
+  width:284px;
+  height:38px;
+  margin:4px auto;
+  padding: 6px 14px;
+  outline: none;
+  border: 1px solid #DDDDDD;
+  border-radius:5px;
+}
+select:focus{
+  box-shadow: 0 0 5px #1983FF;
+  border: 1px solid #1983FF;
+  outline: none;
+}
+.disabled{
+  color:gray;
+}

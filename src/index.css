@@ -17,6 +17,9 @@
   font-weight: normal;
 }
 
+*{
+	font-family: 'Google Sans', sans-serif;
+  }
 
 .container {
     display: flex;
@@ -24,15 +27,17 @@
     justify-content: center;
     align-items: center;
     height:100vh;  
+    margin:0px;
 }
 .container > h2{
-  font-family: "Inter-Extrabold";
+  /* font-family: "Inter-Semibold"; */
+  font-size: 20px;
 }
 input{
-  margin:20px 0;
+  margin:4px 0 20px 0;
   display: flex;
   flex-direction: column;
 }
-/* .submit{
-  margin-left:52px;
-} */
+.submit{
+  margin:20px auto;
+}

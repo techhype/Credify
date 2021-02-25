@@ -12,7 +12,7 @@ const Toggle = (props) => {
   }
   return (
     <div>
-    {props.name}
+      <p>{props.name}</p>
       <div className="toggle-btn" onClick={({target})=>handleClick(target)}>
         <div className="inner-circle">
         </div>
