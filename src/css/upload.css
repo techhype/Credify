@@ -34,3 +34,7 @@ input[type="date"]:in-range::-webkit-datetime-edit-text { 	color: transparent; }
 .cancelbtn:focus{
   outline: none;
 }
+
+#header{
+  margin-top:100px;
+}

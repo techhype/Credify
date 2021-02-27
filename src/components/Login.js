@@ -59,7 +59,11 @@ const Login = () => {
           required/>
         <input type='submit' value='Sign In' className='submit'/>
       </form>
-      <Link to="/register">Create Account</Link>
+      <Link to="/register" style={{ textDecoration: 'none' }}>
+        <button type='button' className='submit'>
+      Create Account
+      </button>
+      </Link>
       {
         error ? <p style={{color:"red"}}> {error} </p> : ''
       }

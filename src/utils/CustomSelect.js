@@ -131,7 +131,8 @@ const CustomSelect = (props) => {
   return (
     <div>
         <div className="cselect">  
-          <select onChange={handleCSPSelect} required> 
+          <label htmlFor="Cloud Service Provider">Date of Certification</label>
+          <select onChange={handleCSPSelect} name="Cloud Service Provider" required> 
             <option className='disabled' defaultValue value>  select an option  </option>
             <option>GCP</option> 
             <option>AWS</option> 
@@ -139,6 +140,7 @@ const CustomSelect = (props) => {
           </select> 
         </div> 
         <div className="cselect"> 
+          <label htmlFor="Cloud Certification Level">Date of Certification</label>
           <select onChange={handleLevelSelect} required> 
           <option className='disabled' defaultValue value>  select an option  </option>
             { 
@@ -147,6 +149,7 @@ const CustomSelect = (props) => {
           </select> 
         </div> 
         <div className="cselect"> 
+          <label htmlFor="Cloud Certification Name">Date of Certification</label>
           <select onChange={handleCertDetails} required> 
           <option className='disabled' defaultValue value>  select an option  </option>
             { 

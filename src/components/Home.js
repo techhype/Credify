@@ -6,6 +6,7 @@ import Dashboard from './Dashboard';
 
 
 const Home = () => {
+  console.log(isLogin());
   if(isLogin())
     return <Dashboard/>;
   else 

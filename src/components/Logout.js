@@ -1,0 +1,35 @@
+import React,{useState} from 'react'
+import {isLogin,logout} from '../utils/index'
+import {useHistory} from 'react-router-dom'
+import axios from 'axios'
+
+import '../css/Button.css'
+
+const Logout = () => {
+  const [isLoggedin,setIsLoggedin] = useState(isLogin());
+  let history = useHistory();
+
+  const handleSubmit = () => {
+    var options = {
+      headers: { 
+        'Authorization': `TOKEN ${localStorage.getItem('token')}` 
+      }
+    };
+
+    const url = 'https://credifybe.tk/logout'
+    axios.post(url,null,options)
+      .then(function (response) {
+        setIsLoggedin(false);
+        logout();
+        history.push("/login"); 
+      })
+      .catch(function (error) {
+        console.log(error);
+      });  
+  }
+  return (
+    <input type='button' onClick={handleSubmit} className='submit' value='Logout' />
+  );
+}
+
+export default Logout;

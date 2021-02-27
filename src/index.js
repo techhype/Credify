@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-// fonts
-import './fonts/Inter-SemiBold.ttf';   
+
 
 
 ReactDOM.render(
