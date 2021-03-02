@@ -20,15 +20,12 @@ const Upload = () => {
       certid: '',
       dateofcert: '',
       expiry: '',
-      visibility: false,
       certFile: null
     });
 
   let history = useHistory();
 
-  const handleToggle = (toggleResult) => {
-    setuserCertDetails({...userCertDetails,visibility:toggleResult});
-  }
+  
   const handleCustomSelect = (csp,certlevel,certname) => {
     setuserCertDetails({...userCertDetails,csp,certlevel,certname});
   }
@@ -47,7 +44,6 @@ const Upload = () => {
     formData.append("certid", userCertDetails.certid);
     formData.append("certified_date", userCertDetails.dateofcert);
     formData.append("expiry_date", userCertDetails.expiry);
-    formData.append("visibility", userCertDetails.visibility);
     
     const url = "https://credifybe.tk/certificates"; 
     var options = {

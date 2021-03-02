@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
+import {isAdmin} from "../utils/index"
 
 import '../css/login.css'
 import '../css/Button.css'
@@ -24,7 +25,16 @@ const Login = () => {
 
         // localstorage 
         window.localStorage.setItem('token',response.data.token);
-        history.push('/dashboard')  
+        window.localStorage.setItem('user',response.data.user.user_type);
+        if(isAdmin()){
+          console.log('Its the Admin');
+          history.push('/admin')
+        }
+        else{
+          console.log('Its an User');
+          history.push('/dashboard')  
+        }
+        
       })
       .catch(function (error) {
         console.log(error.response.status,error.response.data.email);

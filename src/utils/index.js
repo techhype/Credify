@@ -14,8 +14,17 @@ const TOKEN_KEY = 'token';
     
 // }
 
+export const isAdmin = () => {
+    const user = window.localStorage.getItem('user');
+    const token = window.localStorage.getItem(TOKEN_KEY)
+    if(token && user==='admin')
+        return true;
+    return false;
+}
+
 export const logout = () => {
     window.localStorage.removeItem(TOKEN_KEY);
+    window.localStorage.removeItem('user');
 }
 
 export const isLogin = () => {

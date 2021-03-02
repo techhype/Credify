@@ -19,7 +19,7 @@ label{
   background: #fff;
   border-radius: 10px;
   display: inline-block;
-  height:400px;
+  height:auto;
   margin: 1rem;
   position: relative;
   width: 400px;
@@ -38,4 +38,12 @@ label{
 }
 .card > h2 {
   margin-top:40px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
 }

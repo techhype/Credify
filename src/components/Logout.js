@@ -24,11 +24,17 @@ const Logout = () => {
         history.push("/login"); 
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error.response.status);
+        if(error.response.status===401){
+          alert('Ooops!!! Your session has expired')
+          logout();
+          history.push('/login')
+        }
       });  
   }
   return (
-    <input type='button' onClick={handleSubmit} className='submit' value='Logout' />
+    <input type='button' onClick={handleSubmit} className='submit' value='Logout'
+    style={{margin:'0px',position:'absolute',top:'25px',right:'20px'}} />
   );
 }
 

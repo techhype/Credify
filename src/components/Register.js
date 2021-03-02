@@ -6,6 +6,7 @@ import '../css/Button.css'
 import '../css/login.css'
 
 const Register = () => {
+  const [empid,setEmpid] = useState(0);
   const [name,setName] = useState('');
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
@@ -16,7 +17,7 @@ const Register = () => {
   const handleSubmit = (e) =>{
     
     e.preventDefault();
-    const usercred = {name, email, password};
+    const usercred = {empid, name, email, password};
     console.log('Register Button clicked');
     
     const url= "https://credifybe.tk/register";
@@ -36,37 +37,43 @@ const Register = () => {
   return (
     <div className="container">
       <div className="card card-3">
-      <h2>Create your Credify account</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="Name">Name</label>
-        <input 
-          className='tinput' 
-          type='text' 
-          name='Name' 
-          value={name}
-          onChange={(e)=>setName(e.target.value)}/>
-        <label htmlFor="Email">Email</label>
-        <input 
-          className='tinput' 
-          type='email' 
-          name='Email' 
-          value={email}
-          onChange={(e)=>setEmail(e.target.value)}/>
-        <label htmlFor="Password">Password</label>
-        <input  
-          className='tinput'
-          type='password' 
-          name='Password' 
-          value={password}
-          onChange={(e)=>setPassword(e.target.value)}/>
-        <input type='submit' value='Register' className='submit'/>
-      </form>
-      {
-        error ? <p style={{color:"red"}}> {error} </p> : ''
-      }
+        <h2>Create your Credify account</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="Employee ID">Employee ID</label>
+          <input 
+            className='tinput' 
+            type='number' 
+            step='0.01'
+            name='Employee ID' 
+            onChange={(e)=>setEmpid(e.target.value)}/>
+          <label htmlFor="Name">Name</label>
+          <input 
+            className='tinput' 
+            type='text' 
+            name='Name' 
+            value={name}
+            onChange={(e)=>setName(e.target.value)}/>
+          <label htmlFor="Email">Email</label>
+          <input 
+            className='tinput' 
+            type='email' 
+            name='Email' 
+            value={email}
+            onChange={(e)=>setEmail(e.target.value)}/>
+          <label htmlFor="Password">Password</label>
+          <input  
+            className='tinput'
+            type='password' 
+            name='Password' 
+            value={password}
+            onChange={(e)=>setPassword(e.target.value)}/>
+          <input type='submit' value='Register' className='submit'/>
+        </form>
+        {
+          error ? <p style={{color:"red"}}> {error} </p> : ''
+        }
       </div>
     </div>
-
   );
 }
 

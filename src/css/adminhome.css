@@ -1,0 +1,8 @@
+#searchForm input{
+  display: inline-block;
+  padding: 5px 16px;
+}
+#searchForm button{
+  display: inline-block;
+  padding: 8px 10px;
+}
