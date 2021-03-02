@@ -19,7 +19,7 @@ const AdminHome = () => {
   }
   return (
     <div className='admin-container'>
-      <h1>Admin Dashboard</h1>
+      <h1 style={{marginTop:'70px'}}>Admin Dashboard</h1>
       <form id='searchForm' onSubmit={handleSubmit}>
         <input
             className='tinput search-input' 

@@ -28,17 +28,11 @@ const SendMail = (props) => {
     <>
     <h1 style={{marginBottom:'30px'}}>Send Mail</h1>
     <form id='sendMailForm' onSubmit={handleSubmit}>
-      <label htmlFor='Message'>Message</label>
       ​<textarea id="txtArea" name='Message'
+      placeholder='Enter your message here'
         value={message}
         onChange={(e)=>setMessage(e.target.value)}
-        rows="18" cols="65"></textarea>
-        {/* <input
-          className='tinput mail-input' 
-          type='textarea' 
-          name='Message' 
-          value={message}
-          onChange={(e)=>setMessage(e.target.value)}/> */}
+        rows="18" cols="40"></textarea>
       <input type='submit' value='Send' className='submit send-btn'/>
     </form>
     </>
