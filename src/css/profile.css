@@ -1,7 +1,9 @@
 .certcontainer{
     display: flex;
     flex-direction: row;
+    flex-wrap:wrap;
     height:auto;
+    margin:20px 30px;
 }
 
 .certcard{

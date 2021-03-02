@@ -6,7 +6,11 @@
   justify-content:center;
   flex-wrap:wrap;
   background:#f0f0f0;
+  
   /* font-family: 'Poppins', sans-serif;  */
+}
+.c-card > * {
+  font-size: 18px;
 }
 .c-card{
   display:flex;

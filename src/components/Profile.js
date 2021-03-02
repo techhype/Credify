@@ -68,7 +68,7 @@ const Profile = () => {
   }
   return (
     <div>
-    <h1 style={{marginLeft:'20px'}}>My Certificates</h1>
+    <h1 style={{marginLeft:'45px',fontSize:'35px',marginTop:'45px'}}>My Certificates</h1>
     <div className="certcontainer">
       <Certificate certs={certs}/>
     </div>  

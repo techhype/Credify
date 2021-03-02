@@ -34,7 +34,7 @@ const Logout = () => {
   }
   return (
     <input type='button' onClick={handleSubmit} className='submit' value='Logout'
-    style={{margin:'0px',position:'absolute',top:'25px',right:'20px'}} />
+    style={{margin:'0px',position:'absolute',top:'25px',right:'40px',fontSize:'18px'}} />
   );
 }
 

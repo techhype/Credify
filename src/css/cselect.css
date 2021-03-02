@@ -1,7 +1,7 @@
 select{
-  width:284px;
+  width:480px;
   height:38px;
-  margin:4px auto;
+  margin:4px auto 20px auto;
   padding: 6px 14px;
   outline: none;
   border: 1px solid #DDDDDD;
@@ -17,6 +17,11 @@ select:focus{
 }
 .cselect > label{
   display:block;
+  font-weight: bold;
   /* margin-bottom: 4px;
   margin-top:4px; */
+}
+
+.cselect > * {
+  font-size: 18px;
 }

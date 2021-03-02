@@ -69,8 +69,8 @@ const Upload = () => {
   
   return (
     <div className="container">
-      <h2 id='header'>Upload Certificates</h2>
-      <form id='form' onSubmit={handleSubmit}>
+      <h2 id='header' style={{marginBottom:'30px'}}>Upload Certificates</h2>
+      <form id='uploadform' onSubmit={handleSubmit}>
         <CustomSelect setCert={handleCustomSelect}/>
         <label htmlFor='Certification ID'>Certification ID</label>
         <input

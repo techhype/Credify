@@ -18,25 +18,20 @@ const AdminHome = () => {
     history.push(`/usercerts/${empid}`)
   }
   return (
-    <>
-    <h1>Admin Home</h1>
-    <form id='searchForm' onSubmit={handleSubmit}>
-      <input
-          className='tinput' 
-          type='text' 
-          name='Employee Id' 
-          onChange={(e)=>setEmpid(e.target.value)}/>
-      <input type='submit' value='Search' className='submit upload'/>
-    </form>
-    <button type='button'  onClick={()=>setShowUsers(!showUsers)} className='submit'>
-    All Users
-    </button>
-    {showUsers ?
-           <Users /> :
-           null
-    }
-    <Logout/>
-    </>
+    <div className='admin-container'>
+      <h1>Admin Dashboard</h1>
+      <form id='searchForm' onSubmit={handleSubmit}>
+        <input
+            className='tinput search-input' 
+            type='text' 
+            name='Employee ID' 
+            placeholder='Employee Id' 
+            onChange={(e)=>setEmpid(e.target.value)}/>
+        <input type='submit' value='Search' className='submit search-btn'/>
+      </form>
+      <Users /> 
+      <Logout/>
+    </div>
   );
 }
 

@@ -2,6 +2,7 @@ import axios from 'axios';
 import React,{useEffect, useState} from 'react'
 import Certificate from './Certificate'
 import Popup from './Popup'
+import '../css/UserCertificates.css'
 
 const UserCertificates = (props) => {
   const [certs,getCerts] = useState('');
@@ -29,8 +30,8 @@ const UserCertificates = (props) => {
   }
   return(
     <>
-    <h1>Users Certificates</h1> 
-    <button className="submit" onClick={()=>setTrigger(true)}>Send Mail</button>
+    <h1 className='uc-title'>Users Certificates</h1> 
+    <button className="submit popup-btn" onClick={()=>setTrigger(true)}>Send Mail</button>
     <div className="certcontainer">
       <Certificate certs={certs}/>
     </div> 

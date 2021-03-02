@@ -12,7 +12,6 @@ const Popup = (props) => {
     <div className="popup">
       <div className="popup-inner">
         <button className="close-btn submit" onClick={handleClick}>x</button>
-        <h1>Message popup</h1>
         <SendMail empid={props.empid}/>
       </div>
     </div>

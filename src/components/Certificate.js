@@ -7,6 +7,7 @@ import AWS from '../img/AWS.png'
 import Azure from '../img/Azure.png'
 
 const Certificate= (props) => {
+  console.log('Certifcates.js props:',props);
   const difDate = (d2) => {
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
@@ -23,6 +24,7 @@ const Certificate= (props) => {
   if(certs.length>0){
     return(
         certs.map((cert,i)=>{
+          console.log(cert.csp);
           return(
               <div key={i} className="c-card">
                 <div className="card-img" >
@@ -47,7 +49,7 @@ const Certificate= (props) => {
                   }
                 </div>
                 <div className='card-btn'>
-                  <a className='submit'>View</a>  
+                  <a target="_blank" style={{textDecoration:'none',fontSize:'18px'}} href={cert.pdf_url} className='submit'>View</a>  
                 </div>
               </div>
           )

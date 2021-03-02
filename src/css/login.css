@@ -1,8 +1,11 @@
-label{
-  font-size:14px;
+#authform > label{
+  font-size:18px;
+}
+#authform > *{
+  font-size:18px;
 }
 .tinput {
-  width:250px;
+  width:300px;
   height:20px;
   outline: none;
   padding: 8px 16px;
@@ -22,7 +25,7 @@ label{
   height:auto;
   margin: 1rem;
   position: relative;
-  width: 400px;
+  width: 500px;
   
 }
 

@@ -37,7 +37,7 @@ const Register = () => {
   return (
     <div className="container">
       <div className="card card-3">
-        <h2>Create your Credify account</h2>
+        <h2 style={{marginBottom:'30px'}}>Create your Credify account</h2>
         <form onSubmit={handleSubmit}>
           <label htmlFor="Employee ID">Employee ID</label>
           <input 
@@ -67,10 +67,10 @@ const Register = () => {
             name='Password' 
             value={password}
             onChange={(e)=>setPassword(e.target.value)}/>
-          <input type='submit' value='Register' className='submit'/>
+          <input type='submit' value='Register' className='submit' style={{fontSize:'18px'}}/>
         </form>
         {
-          error ? <p style={{color:"red"}}> {error} </p> : ''
+          error ? <p style={{color:"red",fontSize:'18px'}}> {error} </p> : ''
         }
       </div>
     </div>

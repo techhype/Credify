@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import {useHistory} from 'react-router-dom'
 import Popup from './Popup'
 
 import '../css/users.css'
@@ -10,6 +11,8 @@ const Users = () => {
   let [allUsers,setAllUsers] = useState('');
   let [trigger,setTrigger] = useState(false)
   let [empid,setEmpid] = useState('')
+
+  let history=useHistory();
 
   useEffect(()=>{
     const url='https://credifybe.tk/allusers'
@@ -32,10 +35,16 @@ const Users = () => {
     setTrigger(true);
     setEmpid(employeeid);
   }
+
+  const handleProfileClick = (employeeid) => {
+    console.log('Profile clicked',typeof employeeid);
+    history.push(`/usercerts/${employeeid}`)
+  }
   return(
     <>
     <h1>Users</h1>
     <Popup trigger={trigger} setTrigger={setTrigger} empid={empid} setEmpid={setEmpid} />
+    <div className="ucontainer">
     { allUsers.length>0  ?
       (
         allUsers.map(user=> 
@@ -47,39 +56,31 @@ const Users = () => {
             <span className="card__name">{user.name}</span>
             <span className="card__email">{user.empid}</span>
             <span className="card__empid">{user.email}</span>
-            <div className="card__skills">
-              <span className="card__skills--item">Cloud</span>
-              <span className="card__skills--item">Devops</span>
-              <span className="card__skills--item">GCP</span>
-            </div>
             <div className="card__footer">
-              <a href="#" title="" className="card__btn btn btn-primary">View Profile</a>
+              <a onClick={()=>handleProfileClick(user.empid)} title="" className="card__btn btn btn-primary">Certificates</a>
               <a onClick={()=>handleContactClick(user.empid)} className="card__btn btn contactbtn">Contact</a>
             </div>
           </div>
         </div>)
       )
-      : 
-      <div className="ucard">
+      : [...Array(4)].map((e, i) =>
+      <div className="ucard" key={i}>
         <div className="card__body">
           <div className="card__img skeleton">
-            <img src="goku.png" alt="" />
+            <img src="" alt="" />
           </div>
           <span className="card__name skeleton">Place Holder</span>
           <span className="card__empid skeleton">1234567</span>
           <span className="card__email skeleton">placeholder@company.com</span>
-          <div className="card__skills skeleton">
-            <span className="card__skills--item">3D</span>
-            <span className="card__skills--item">UI Design</span>
-            <span className="card__skills--item">Graphics</span>
-          </div>
           <div className="card__footer skeleton">
-            <a href="#" title="" className="card__btn btn btn-primary">View Profile</a>
+            <a href="#" title="" className="card__btn btn btn-primary">Certificates</a>
             <a href="#" title="" className="card__btn btn">Contact</a>
           </div>
         </div>
       </div>
+      )
     }
+    </div>
     </>
   );
 }

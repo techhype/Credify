@@ -48,9 +48,10 @@ const Login = () => {
 
   return (
     <div className="container">
+    <h1 style={{marginBottom:'60px',fontSize:'35px'}}>Credify</h1>
       <div className="card card-3">
-      <h2>Sign in to your account</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 style={{marginBottom:'30px'}}>Sign in to your account</h2>
+      <form id='authform' onSubmit={handleSubmit}>
         <label htmlFor="Email">Email</label>
         <input 
           className='tinput'
@@ -70,7 +71,7 @@ const Login = () => {
         <input type='submit' value='Sign In' className='submit'/>
       </form>
       <Link to="/register" style={{ textDecoration: 'none' }}>
-        <button type='button' className='submit'>
+        <button type='button' className='submit' style={{fontSize:'18px'}}>
       Create Account
       </button>
       </Link>

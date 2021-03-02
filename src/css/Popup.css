@@ -16,6 +16,7 @@
   padding: 32px;
   width: 100%;
   max-width: 640px;
+  border-radius: 10px;
   background-color: #fff;
 }
 .popup-inner .close-btn{
