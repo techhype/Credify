@@ -42,6 +42,7 @@ const Register = () => {
         <form onSubmit={handleSubmit}>
           <label htmlFor="Employee ID">Employee ID</label>
           <input 
+            required
             className='tinput' 
             type='number' 
             step='0.01'
@@ -49,6 +50,7 @@ const Register = () => {
             onChange={(e)=>setEmpid(e.target.value)}/>
           <label htmlFor="Name">Name</label>
           <input 
+            required
             className='tinput' 
             type='text' 
             name='Name' 
@@ -56,13 +58,15 @@ const Register = () => {
             onChange={(e)=>setName(e.target.value)}/>
           <label htmlFor="Email">Email</label>
           <input 
+            required
             className='tinput' 
             type='email' 
             name='Email' 
             value={email}
             onChange={(e)=>setEmail(e.target.value)}/>
           <label htmlFor="Password">Password</label>
-          <input  
+          <input 
+            required 
             className='tinput'
             type='password' 
             name='Password' 

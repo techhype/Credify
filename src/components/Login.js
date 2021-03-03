@@ -48,7 +48,7 @@ const Login = () => {
 
   return (
     <div className="container">
-    <h1 style={{marginBottom:'60px',fontSize:'35px'}}>Credify</h1>
+    <h1 style={{marginBottom: '60px',fontSize:'35px'}}>Credify</h1>
       <div className="card card-3">
       <h2 style={{marginBottom:'30px'}}>Sign in to your account</h2>
       <form id='authform' onSubmit={handleSubmit}>

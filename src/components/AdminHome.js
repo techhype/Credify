@@ -22,6 +22,7 @@ const AdminHome = () => {
       <h1 style={{marginTop:'70px'}}>Admin Dashboard</h1>
       <form id='searchForm' onSubmit={handleSubmit}>
         <input
+            required
             className='tinput search-input' 
             type='text' 
             name='Employee ID' 

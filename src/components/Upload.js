@@ -22,6 +22,7 @@ const Upload = () => {
       expiry: '',
       certFile: null
     });
+    const [error,setError] = useState('');
 
   let history = useHistory();
 
@@ -56,14 +57,14 @@ const Upload = () => {
       .then(function (response) {
         console.log(response);
          alert("Your Certificate has been uploaded!");
-         document.getElementById("form").reset();
+         document.getElementById("uploadform").reset();
          history.push('/dashboard')
       })
       .catch(function (error) {
-        console.log(error.response.status,error.response.data);
-        // Object.entries(error.response.data).forEach(([key,value]) => {
-        //   setError(`${key.charAt(0).toUpperCase() + key.slice(1)} : ${value[0]}`);
-        // })
+        console.log(error.response);
+        Object.entries(error.response.data).forEach(([key,value]) => {
+          setError(`${key.charAt(0).toUpperCase() + key.slice(1)} : ${value[0]}`);
+        })
       });
   }
   
@@ -74,6 +75,7 @@ const Upload = () => {
         <CustomSelect setCert={handleCustomSelect}/>
         <label htmlFor='Certification ID'>Certification ID</label>
         <input
+          required
           className='tinput' 
           type='text' 
           name='Certification ID' 
@@ -81,6 +83,7 @@ const Upload = () => {
           onChange={(e)=>setuserCertDetails({...userCertDetails,certid:e.target.value})}/>
         <label htmlFor="Date of Certification">Date of Certification</label>
         <input 
+          required
           type='date' 
           name='Date of Certification' 
           value={userCertDetails.dateofcert}
@@ -88,6 +91,7 @@ const Upload = () => {
           onChange={(e)=>setuserCertDetails({...userCertDetails,dateofcert:e.target.value})}/>
         <label htmlFor="Expiry Date of Certification">Expiry Date</label>
         <input 
+          required
           type='date' 
           name='Expiry Date of Certification' 
           value={userCertDetails.expiry}
@@ -104,9 +108,9 @@ const Upload = () => {
         </div>
 
       </form>
-      {/* {
+      {
         error ? <p style={{color:"red"}}> {error} </p> : ''
-      } */}
+      }
     </div>
 
   );
