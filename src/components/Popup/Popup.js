@@ -1,6 +1,6 @@
 import React from 'react'
-import SendMail from './SendMail'
-import '../css/Popup.css'
+import SendMail from '../SendMail/SendMail'
+import './Popup.css'
 
 const Popup = (props) => {
   console.log(props.empid);

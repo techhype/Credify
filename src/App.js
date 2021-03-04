@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router,Switch, Route } from 'react-router-dom';
-import Login from './components/Login';
-import Register from './components/Register';
-import Dashboard from './components/Dashboard';
-import Home from './components/Home';
-import Upload from './components/Upload';
-import Profile from './components/Profile';
-import AdminHome from './components/AdminHome'
-import Users from './components/Users'
-import UserCertificates from './components/UserCertificates'
-import SendMail from './components/SendMail'
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import Dashboard from './components/Dashboard/Dashboard';
+import Home from './components/Home/Home';
+import Upload from './components/Upload/Upload';
+import Profile from './components/Profile/Profile';
+import AdminHome from './components/AdminHome/AdminHome'
+import Users from './components/Users/Users'
+import UserCertificates from './components/UserCertificates/UserCertificates'
+import SendMail from './components/SendMail/SendMail'
 
 import PrivateRoute from './routes/PrivateRoute';
 import PublicRoute from './routes/PublicRoute';

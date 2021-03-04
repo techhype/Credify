@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React,{useState} from 'react'
-import '../css/SendMail.css'
+import './SendMail.css'
 
 const SendMail = (props) => {
   const empid=props.empid;

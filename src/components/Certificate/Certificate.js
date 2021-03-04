@@ -1,10 +1,7 @@
 import react from 'react';
-import '../css/profile.css'
+import '../Profile/profile.css'
 
-import '../css/card.css'
-import GCP from '../img/GCP.png'
-import AWS from '../img/AWS.png'
-import Azure from '../img/Azure.png'
+import '../../css/card.css'
 
 const Certificate= (props) => {
   console.log('Certifcates.js props:',props);

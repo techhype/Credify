@@ -1,9 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
-import '../index.css'
-import '../css/Button.css'
-import '../css/login.css'
+import '../../css/Button.css'
+import '../Login/login.css'
 
 const Register = () => {
   const [empid,setEmpid] = useState(0);

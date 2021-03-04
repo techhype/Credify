@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
-import Logout from '../components/Logout'
-import Users from './Users'
+import Logout from '../Logout/Logout'
+import Users from '../Users/Users'
 import {useHistory} from 'react-router-dom'
 
-import '../css/adminhome.css'
+import './adminhome.css'
 
 
 const AdminHome = () => {

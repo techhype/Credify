@@ -2,11 +2,11 @@ import React,{useState} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
-import {isAdmin} from "../utils/index"
+import {isAdmin} from "../../utils/index"
 
-import '../css/login.css'
-import '../css/Button.css'
-import '../index.css'
+import './login.css'
+import '../../css/Button.css'
+
 
 const Login = () => {
   const [email,setEmail] = useState('');

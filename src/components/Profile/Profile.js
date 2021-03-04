@@ -1,8 +1,8 @@
 import React,{useEffect, useState} from "react";
-import Certificate from './Certificate'
+import Certificate from '../Certificate/Certificate'
 import axios from "axios";
 
-import '../css/profile.css'
+import './profile.css'
 
 const Profile = () => {
   const [certs,getCerts] = useState('');

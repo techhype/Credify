@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
-import {isLogin,logout} from '../utils/index'
+import {isLogin,logout} from '../../utils/index'
 import {useHistory} from 'react-router-dom'
 import axios from 'axios'
 
-import '../css/Button.css'
+import '../../css/Button.css'
 
 const Logout = () => {
   const [isLoggedin,setIsLoggedin] = useState(isLogin());

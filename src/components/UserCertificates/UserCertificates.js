@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React,{useEffect, useState} from 'react'
-import Certificate from './Certificate'
-import Popup from './Popup'
-import '../css/UserCertificates.css'
+import Certificate from '../Certificate/Certificate'
+import Popup from '../Popup/Popup'
+import './UserCertificates.css'
 
 const UserCertificates = (props) => {
   const [certs,getCerts] = useState('');

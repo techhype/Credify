@@ -1,10 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import Logout from './Logout'
-import '../css/Button.css'
-import '../css/dashboard.css'
-import uploadImg from '../img/upload.png'
-import profileImg from '../img/certificates.png'
+import Logout from '../Logout/Logout'
+import '../../css/Button.css'
+import './dashboard.css'
+import uploadImg from '../../img/upload.png'
+import profileImg from '../../img/certificates.png'
 const Home = () => {
   return (
     <div className="dcontainer">

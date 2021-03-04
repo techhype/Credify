@@ -2,10 +2,10 @@ import React,{useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
-import Popup from './Popup'
+import Popup from '../Popup/Popup'
 
-import '../css/users.css'
-import userImg from '../img/user.jpg'
+import './users.css'
+import userImg from '../../img/user.jpg'
 
 const Users = () => {
   let [allUsers,setAllUsers] = useState('');

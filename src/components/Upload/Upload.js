@@ -3,13 +3,13 @@ import {Link} from 'react-router-dom'
 import { useHistory } from "react-router-dom";
 import axios from 'axios'
 
-import '../index.css'
-import '../css/Button.css'
-import '../css/upload.css'
+import '../../css/Button.css'
+import '../../css/cselect.css'
+import './upload.css'
 
 
 // import Toggle from '../utils/Toggle';
-import CustomSelect from '../utils/CustomSelect';
+import CustomSelect from '../../utils/CustomSelect';
 
 const Upload = () => {
   const [userCertDetails,setuserCertDetails] = useState(
@@ -17,6 +17,7 @@ const Upload = () => {
       csp: '',
       certlevel: '',
       certname: '',
+      sbu: '',
       certid: '',
       dateofcert: '',
       expiry: '',
@@ -42,10 +43,13 @@ const Upload = () => {
     formData.append("csp", userCertDetails.csp);
     formData.append("level", userCertDetails.certlevel);
     formData.append("certname", userCertDetails.certname);
+    formData.append("sbu", userCertDetails.sbu);
     formData.append("certid", userCertDetails.certid);
     formData.append("certified_date", userCertDetails.dateofcert);
     formData.append("expiry_date", userCertDetails.expiry);
     
+
+
     const url = "https://credifybe.tk/certificates"; 
     var options = {
       headers: { 
@@ -81,6 +85,16 @@ const Upload = () => {
           name='Certification ID' 
           value={userCertDetails.certid}
           onChange={(e)=>setuserCertDetails({...userCertDetails,certid:e.target.value})}/>
+        <label htmlFor='SBU'>Select a SBU</label>
+        <br/>
+        <select onChange={(e)=>setuserCertDetails({...userCertDetails,sbu:e.target.value})} 
+                name="SBU" required>
+          <option className='disabled' defaultValue value>  select an option  </option>
+          <option value='SBU 1'>SBU 1</option>
+          <option value='SBU 2'>SBU 2</option>
+          <option value='SBU 3'>SBU 3</option>
+        </select>
+        <br/>
         <label htmlFor="Date of Certification">Date of Certification</label>
         <input 
           required
