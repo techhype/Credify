@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import Logout from '../Logout/Logout'
+import {Link} from 'react-router-dom'
 import Users from '../Users/Users'
 import {useHistory} from 'react-router-dom'
 
@@ -31,6 +32,9 @@ const AdminHome = () => {
         <input type='submit' value='Search' className='submit search-btn'/>
       </form>
       <Users /> 
+      <Link to="/admindash" style={{ textDecoration: 'none' }}>
+        Admin Dashboard
+      </Link>
       <Logout/>
     </div>
   );

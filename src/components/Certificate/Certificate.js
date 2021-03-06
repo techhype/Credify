@@ -21,7 +21,6 @@ const Certificate= (props) => {
   if(certs.length>0){
     return(
         certs.map((cert,i)=>{
-          console.log(cert.csp);
           return(
               <div key={i} className="c-card">
                 <div className="card-img" >

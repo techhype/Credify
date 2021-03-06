@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import AdminNavbar from '../components/AdminNavbar';
 import { isAdmin, isLogin } from '../utils/index';
 
 
@@ -10,7 +11,12 @@ const AdminRoute = ({component: Component, ...rest}) => {
         // Otherwise, redirect the user to /login page
         <Route {...rest} render={props => (
             isAdmin()===true && isLogin()===true ?
+                (
+                <>
+                <AdminNavbar/>
                 <Component {...props} />
+                </>
+                )
             : <Redirect to="/" />
         )} />
     );

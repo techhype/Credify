@@ -28,7 +28,7 @@ const Login = () => {
         window.localStorage.setItem('user',response.data.user.user_type);
         if(isAdmin()){
           console.log('Its the Admin');
-          history.push('/admin')
+          history.push('/admindash')
         }
         else{
           console.log('Its an User');

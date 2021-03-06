@@ -1,0 +1,35 @@
+/* .ad-title{
+  font-size: 45px;
+} */
+.inputCsp{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 40px;
+}
+.inputCsp > input[type=radio]{
+  margin-left: 30px;
+  margin-right: 10px;
+  position: relative;
+  top: 6px;
+}
+.dash-card{
+  display:flex;
+  flex-wrap: wrap;
+  width: auto;
+}
+.total-section{
+  display:flex;
+  flex-direction: row;
+  width:100vw;
+}
+.total-card{
+  display: inline-block;
+  justify-content: center;
+  zoom: 1; /* Trigger QhasLayout */
+  text-align: center;
+  padding:10px 10px;
+  height:120px;
+  width:45vw;
+  text-align: center;
+}

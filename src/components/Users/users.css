@@ -5,7 +5,7 @@
   margin-left: 25px;
 }
 .ucard{
-  width:327px !important;
+  width: 330px !important;
   margin: 0 20px;
   background: linear-gradient(180deg,#63a1ff 0%,#fff 65%);
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -98,7 +98,7 @@
   justify-content: center;
   margin-top: 20px;
 }
-.btn{
+.cbtn{
   background: #f0f0f0;
   border-radius: 42px;
   display: inline-flex;
@@ -110,7 +110,8 @@
   font-weight: 500;
   font-size: 14px;
   color: #bababa;
-  text-decoration: none;
+  text-decoration: none !important;
+  cursor:pointer;
   /* transition: .5s; */
 }
 .card__soc--link:hover{
@@ -126,14 +127,14 @@
   color: #0047ff;
 }
 
-.ucard:hover .btn-primary{
+.ucard:hover .cbtn-primary{
   background: #0047ff;
   color: #fff;
 }
-.card__btn:hover{
+.card__cbtn:hover{
   cursor:pointer;
 }
-.contactbtn:hover{
+.contactcbtn:hover{
   color: #000;
 }
 

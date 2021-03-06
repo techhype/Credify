@@ -57,8 +57,8 @@ const Users = () => {
             <span className="card__email">{user.empid}</span>
             <span className="card__empid">{user.email}</span>
             <div className="card__footer">
-              <a onClick={()=>handleProfileClick(user.empid)} title="" className="card__btn btn btn-primary">Certificates</a>
-              <a onClick={()=>handleContactClick(user.empid)} className="card__btn btn contactbtn">Contact</a>
+              <a onClick={()=>handleProfileClick(user.empid)} title="" className="card__btn cbtn btn-primary">Certificates</a>
+              <a onClick={()=>handleContactClick(user.empid)} className="card__btn cbtn contactbtn">Contact</a>
             </div>
           </div>
         </div>)
@@ -73,8 +73,8 @@ const Users = () => {
           <span className="card__empid skeleton">1234567</span>
           <span className="card__email skeleton">placeholder@company.com</span>
           <div className="card__footer skeleton">
-            <a href="#" title="" className="card__btn btn btn-primary">Certificates</a>
-            <a href="#" title="" className="card__btn btn">Contact</a>
+            <a href="#" title="" className="card__btn cbtn btn-primary">Certificates</a>
+            <a href="#" title="" className="card__btn cbtn">Contact</a>
           </div>
         </div>
       </div>

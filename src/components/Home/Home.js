@@ -2,12 +2,12 @@ import React from 'react'
 import {isAdmin, isLogin} from '../../utils/index'
 import Login from '../Login/Login';
 import Dashboard from '../Dashboard/Dashboard';
-import AdminHome from '../AdminHome/AdminHome';
+import AdminDashboard from '../AdminDashboard/AdminDashboard';
 
 
 const Home = () => {
   if(isAdmin() && isLogin())
-    return <AdminHome />
+    return <AdminDashboard />
   else if(isLogin() && isAdmin()===false)
     return <Dashboard/>;
   else 
