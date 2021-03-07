@@ -47,15 +47,9 @@ const AdminDashboard = () => {
 
   return (
     <>
-    <h1 style={{fontSize:'1.5em',marginTop:'10px',marginLeft:'20px'}}>Admin Dashboard</h1>
-    <div className="card dash-card">
-      <PieChart cspTotal={cspTotal} />
-    </div>
-    <div className='total-section'>
-      <div className="card total-card">Total Number of Users <br/> {usersTotal}</div>
-      <div className="card total-card">Total Number of Certificates <br/>  {certsTotal}</div>
-    </div>
-    <div className='inputCsp' onChange={onChangeCsp}>
+    {/* <h1 style={{fontSize:'1.5em',marginTop:'10px',marginLeft:'20px'}}>Admin Dashboard</h1> */}
+    <div className="top-section">
+    <div className='inputCsp card' onChange={onChangeCsp}>
       <input type="radio" value="GCP" name="csp" id='gcp'/>
       <label htmlFor="gcp">GCP</label>
       <input type="radio" value="AWS" name="csp" id='aws' />
@@ -63,30 +57,40 @@ const AdminDashboard = () => {
       <input type="radio" value="Azure" name="csp" id='azure' />
       <label htmlFor="azure">Azure</label>
     </div>
-    {
-      CSP==='GCP' 
-      ? (<div className="card dash-card">
-          <LevelBarChart levelTotal={gcpLevelTotal} levelNames={gcpLevelNames} />
+      <div className="card dash-card">
+        <PieChart cspTotal={cspTotal} style={{display:'block'}} />
+      </div>
+      <div className='total-section'>
+        <div className="card total-card">Total Number of Users <br/> {usersTotal}</div>
+        <div className="card total-card">Total Number of Certificates <br/>  {certsTotal}</div>
+      </div>
+    </div>
+    <div className='bottom-section'>
+      {
+        CSP==='GCP' 
+        ? (<div className="card dash-card">
+            <LevelBarChart levelTotal={gcpLevelTotal} levelNames={gcpLevelNames} />
+            </div>)
+        : CSP==='AWS'
+        ? (<div className="card dash-card">
+          <LevelBarChart levelTotal={awsLevelTotal} levelNames={awsLevelNames} />
           </div>)
-      : CSP==='AWS'
-      ? (<div className="card dash-card">
-        <LevelBarChart levelTotal={awsLevelTotal} levelNames={awsLevelNames} />
-        </div>)
-      : CSP==='Azure'
-      ? (<div className="card dash-card">
-        <LevelBarChart levelTotal={azureLevelTotal} levelNames={azureLevelNames} />
-        </div>)
-      :''
-    }
-    {  
-      CSP==='GCP' 
-      ? (<div className="card dash-card"><NameBarChart certNamesTotal={GCPCertNamesTotal} certNames={gcpCertNames} /></div>)
-      : CSP==='AWS'
-      ? (<div className="card dash-card"><NameBarChart certNamesTotal={AWSCertNamesTotal} certNames={awsCertNames} /></div>)
-      : CSP==='Azure'
-      ? (<div className="card dash-card"><NameBarChart certNamesTotal={AzureCertNamesTotal} certNames={azureCertNames} /></div>)
-      :''
-    }
+        : CSP==='Azure'
+        ? (<div className="card dash-card">
+          <LevelBarChart levelTotal={azureLevelTotal} levelNames={azureLevelNames} />
+          </div>)
+        :''
+      }
+      {  
+        CSP==='GCP' 
+        ? (<div className="card dash-card"><NameBarChart certNamesTotal={GCPCertNamesTotal} certNames={gcpCertNames} /></div>)
+        : CSP==='AWS'
+        ? (<div className="card dash-card"><NameBarChart certNamesTotal={AWSCertNamesTotal} certNames={awsCertNames} /></div>)
+        : CSP==='Azure'
+        ? (<div className="card dash-card"><NameBarChart certNamesTotal={AzureCertNamesTotal} certNames={azureCertNames} /></div>)
+        :''
+      }
+    </div>
     </>
   );
 }

@@ -23,7 +23,7 @@ const PieChart = (props) => {
         }]
       }}
       width={100}
-      height={50}
+      height={40}
       options={{
         // responsive: true,
         // maintainAspectRatio:false,

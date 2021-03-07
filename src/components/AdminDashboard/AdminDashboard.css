@@ -1,27 +1,33 @@
 /* .ad-title{
   font-size: 45px;
 } */
+.top-section{
+  display: flex;
+  font-display: row;
+}
 .inputCsp{
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   margin-top: 40px;
+  height: 100%;
+  width:10%;
 }
 .inputCsp > input[type=radio]{
-  margin-left: 30px;
-  margin-right: 10px;
   position: relative;
-  top: 6px;
+  top:17px;
+  left:4px;
 }
 .dash-card{
-  display:flex;
-  flex-wrap: wrap;
-  width: auto;
+  display: block;
+  /* display:flex;
+  flex-wrap: wrap; */
+  width: 70vw;
 }
 .total-section{
   display:flex;
-  flex-direction: row;
-  width:100vw;
+  flex-direction: column;
+  width:25%;
 }
 .total-card{
   display: inline-block;
@@ -29,7 +35,48 @@
   zoom: 1; /* Trigger QhasLayout */
   text-align: center;
   padding:10px 10px;
-  height:120px;
-  width:45vw;
+  height:50%;
+  width:90%;
   text-align: center;
+}
+.bottom-section{
+  display: flex;
+  flex-direction: row;
+}
+@media screen and (max-width: 1000px){
+  .top-section{
+    display: flex;
+    flex-direction: column;
+    width: 100vh;
+  }
+  .bottom-section{
+    display: flex;
+    flex-direction: column;
+    width:100vh;
+  }
+  .dash-card{
+  display: block;
+  width:92vw;
+  }
+  .total-section{
+    display: flex;
+    flex-direction: row;
+    width:90%;
+  }
+  .total-card{
+    width: 40vw;
+    height:10%;
+  }
+  .inputCsp{
+    /* margin-left: 60px; */
+    display: flex;
+    flex-direction: row !important;
+    width: 95vw;
+  }
+  .inputCsp > input[type=radio]{
+    position: relative;
+    top: 5px;
+    margin-right: 10px;
+    margin-left: 20px;
+  }
 }

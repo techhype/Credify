@@ -3,11 +3,18 @@ import {isAdmin, isLogin} from '../../utils/index'
 import Login from '../Login/Login';
 import Dashboard from '../Dashboard/Dashboard';
 import AdminDashboard from '../AdminDashboard/AdminDashboard';
+import AdminNavbar from '../AdminNavbar';
+
 
 
 const Home = () => {
   if(isAdmin() && isLogin())
-    return <AdminDashboard />
+    return (
+    <>
+    <AdminNavbar/>
+    <AdminDashboard />
+    </>
+    )
   else if(isLogin() && isAdmin()===false)
     return <Dashboard/>;
   else 
