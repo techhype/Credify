@@ -3,7 +3,7 @@ import React,{useEffect, useState} from 'react'
 import Certificate from '../Certificate/Certificate'
 // import Popup from '../Popup/Popup'
 import './UserCertificates.css'
-
+  
 const UserCertificates = (props) => {
   console.log(props);
   console.log('User certs userid props',props.match.params.userid);

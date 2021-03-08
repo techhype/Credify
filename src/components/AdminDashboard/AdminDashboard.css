@@ -43,6 +43,14 @@
   display: flex;
   flex-direction: row;
 }
+
+.sbu-select{
+  width:100px;
+}
+.sbu-select > .disabled {
+  color:#eee;
+}
+
 @media screen and (max-width: 1000px){
   .top-section{
     display: flex;
@@ -75,8 +83,12 @@
   }
   .inputCsp > input[type=radio]{
     position: relative;
-    top: 5px;
+    top: 20px;
     margin-right: 10px;
     margin-left: 20px;
+  }
+  .sbu-select{
+    position: relative;
+    top: 5px;
   }
 }

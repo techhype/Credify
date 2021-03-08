@@ -44,6 +44,8 @@ const gcpCertNames = [
  
 
 export const getStats = (
+  SBU,
+  setUsersList,
   setUsersTotal,
   setCertsTotal,
   setCspTotal,
@@ -59,7 +61,8 @@ export const getStats = (
       'Authorization': `TOKEN ${localStorage.getItem('token')}` 
     }
   };
-  axios.post(url,null,options)
+  const body = SBU ? SBU : null;
+  axios.post(url,{"sbu":body},options)
   .then(response => {
     console.log(response.data);
     const {GCP,AWS,Azure} = response.data;
@@ -116,7 +119,8 @@ export const getStats = (
       Azure.Azure_expert.Azure_expert_certs.Azure_microsoftcertifiedcertifiedazuredevopsengineer,
       Azure.Azure_expert.Azure_expert_certs.Azure_microsoftcertifiedsolutionsarchitect
     ];
-    setUsersTotal(response.data.users_count);
+    setUsersList(response.data.users_count);
+    setUsersTotal(response.data.users_count.length);
     setCertsTotal(response.data.certificates_count);
     setCspTotal(cspCount);
     setGcpLevelTotal(gcpLevelCount);
@@ -138,4 +142,32 @@ export {
   gcpCertNames,
   awsCertNames,
   azureCertNames,
+}
+
+export const getAllUsers = (setAllUsers) => {
+  const url = "https://credifybe.tk/adminhome"; 
+  var options = {
+    headers: { 
+      'Authorization': `TOKEN ${localStorage.getItem('token')}` 
+    }
+  };
+  // const [response] = await Promise.all([
+  //   axios.get(`https://maps.googleapis.com/maps/api/geocode/json?&address=${this.props.p1}`),
+  // ]);
+
+  axios.post(url,null,options)
+  .then(response => {
+    return axios.post('https://credifybe.tk/allusers',{userids:response.data.users_count},options)
+      .then(response => {
+        console.log(response);
+        setAllUsers(response.data);
+      })
+      .catch(function (error) {
+        console.log(error.response.status,error.response);
+      });
+    
+  })
+  .catch(error => {
+    console.log(error);
+  })
 }

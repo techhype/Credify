@@ -3,7 +3,7 @@ import Certificate from '../Certificate/Certificate'
 import axios from 'axios'
 import { deleteCertificate } from '../../utils/delete';
 
-const AdminAllCerts = () => {
+const AdminAllCerts = (props) => {
   const [certs,getCerts] = useState('');
   useEffect(()=>{
     getUserCerts();  
@@ -16,7 +16,8 @@ const AdminAllCerts = () => {
         'Authorization': `TOKEN ${localStorage.getItem('token')}` 
       }
     };
-    axios.post(url,null,options)
+    const sbu = props.location.state.sbu ? {sbu:props.location.state.sbu} : null; 
+    axios.post(url,sbu,options)
     .then(response => {
       console.log(response.data);
       getCerts(response.data);

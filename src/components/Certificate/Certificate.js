@@ -8,8 +8,7 @@ import { useLocation } from 'react-router-dom'
 
 
 const Certificate= (props) => {
-  const loc = useLocation().pathname.slice(0,-2);
-  console.log(loc);
+  const loc = useLocation().pathname;
   console.log('Certifcates.js props:',props);
   const difDate = (d2) => {
     var today = new Date();
@@ -59,7 +58,7 @@ const Certificate= (props) => {
                 <div className='card-btn'>
                   <a target="_blank" style={{textDecoration:'none',fontSize:'18px'}} href={cert.pdf_url} className='submit'>View</a>  
                 {props.notifySingle ? <a onClick={()=>props.notifySingle(i)} style={{marginLeft:'110px',textDecoration:'none',fontSize:'18px'}} className="submit">Notify</a> : ''}
-                {(isAdmin() && loc==="/usercerts") || props.deleteCertificate ? <a onClick={()=>props.deleteCertificate(cert.id)} style={{cursor:'pointer',marginLeft:'110px',textDecoration:'none',fontSize:'18px'}} className="submit">Delete</a> : ''}
+                {(isAdmin() && loc.slice(0,-2)==="/usercerts") || props.deleteCertificate ? <a onClick={()=>props.deleteCertificate(cert.id)} style={{cursor:'pointer',marginLeft:'110px',textDecoration:'none',fontSize:'18px'}} className="submit">Delete</a> : ''}
                 </div>
               </div>
           )

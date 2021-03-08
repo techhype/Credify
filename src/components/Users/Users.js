@@ -7,12 +7,15 @@ import {useHistory} from 'react-router-dom'
 import './users.css'
 import userImg from '../../img/user.jpg'
 import { deleteUser } from '../../utils/delete'
+import { getAllUsers } from '../../utils/stats'
 
-const Users = () => {
+const Users = (props) => {
   let [allUsers,setAllUsers] = useState('');
   // let [trigger,setTrigger] = useState(false)
   let [userid,setUserid] = useState('')
+  console.log(props);
 
+  const userids = props.location.state ? props.location.state.usersList : null;
   let history=useHistory();
 
   useEffect(()=>{
@@ -22,14 +25,19 @@ const Users = () => {
         'Authorization': `TOKEN ${localStorage.getItem('token')}` 
       }
     };
-    axios.get(url,options)
-      .then(response => {
-        console.log(response);
-        setAllUsers(response.data);
-      })
-      .catch(function (error) {
-        console.log(error.response.status,error.response);
-      });
+    if(userids){
+      axios.post(url,{userids},options)
+        .then(response => {
+          console.log(response);
+          setAllUsers(response.data);
+        })
+        .catch(function (error) {
+          console.log(error.response.status,error.response);
+        });
+    }
+    else{
+      getAllUsers(setAllUsers);
+    }
   },[])
 
   // const handleContactClick = (userid) => {
