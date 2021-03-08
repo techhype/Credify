@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import Certificate from '../Certificate/Certificate'
 import axios from 'axios'
+import { deleteCertificate } from '../../utils/delete';
 
 const AdminAllCerts = () => {
   const [certs,getCerts] = useState('');
@@ -28,7 +29,7 @@ const AdminAllCerts = () => {
     <>
       <h1 style={{fontSize:'1.8em',marginTop:'25px',marginLeft:'50px'}}>All Certificates</h1>
       <div className="certcontainer">
-        <Certificate certs={certs}/>
+        <Certificate certs={certs} deleteCertificate={deleteCertificate}/>
       </div> 
     </>
   );

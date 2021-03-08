@@ -30,7 +30,7 @@ const App = () => {
       <AdminRoute component={AdminExpired} path="/adminexpired" exact />
       <AdminRoute component={AdminExpiring} path="/adminexpiring" exact />
       <AdminRoute component={Users} path="/users" exact />
-      <AdminRoute component={UserCertificates} path="/usercerts/:empid" exact />
+      <AdminRoute component={UserCertificates} path="/usercerts/:userid" exact />
       <AdminRoute component={SendMail} path="/sendmail" exact />
       <PrivateRoute component={Dashboard} path="/dashboard" exact />
       <PrivateRoute component={Upload} path="/upload" exact />

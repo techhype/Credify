@@ -2,15 +2,16 @@ import React,{useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
-import Popup from '../Popup/Popup'
+// import Popup from '../Popup/Popup'
 
 import './users.css'
 import userImg from '../../img/user.jpg'
+import { deleteUser } from '../../utils/delete'
 
 const Users = () => {
   let [allUsers,setAllUsers] = useState('');
-  let [trigger,setTrigger] = useState(false)
-  let [empid,setEmpid] = useState('')
+  // let [trigger,setTrigger] = useState(false)
+  let [userid,setUserid] = useState('')
 
   let history=useHistory();
 
@@ -31,19 +32,18 @@ const Users = () => {
       });
   },[])
 
-  const handleContactClick = (employeeid) => {
-    setTrigger(true);
-    setEmpid(employeeid);
-  }
+  // const handleContactClick = (userid) => {
+  //   // setTrigger(true);
+  //   setUserid(userid);
+  // }
 
-  const handleProfileClick = (employeeid) => {
-    console.log('Profile clicked',typeof employeeid);
-    history.push(`/usercerts/${employeeid}`)
+  const handleProfileClick = (userid) => {
+    history.push(`/usercerts/${userid}`)
   }
   return(
     <>
     <h1>Users</h1>
-    <Popup trigger={trigger} setTrigger={setTrigger} empid={empid} setEmpid={setEmpid} />
+    {/* <Popup trigger={trigger} setTrigger={setTrigger} userid={userid} setUserid={setUserid} /> */}
     <div className="ucontainer">
     { allUsers.length>0  ?
       (
@@ -54,11 +54,11 @@ const Users = () => {
               <img src={userImg} alt=""/>
             </div>
             <span className="card__name">{user.name}</span>
-            <span className="card__email">{user.empid}</span>
-            <span className="card__empid">{user.email}</span>
+            <span className="card__empid">{user.empid}</span>
+            <span className="card__email">{user.email}</span>
             <div className="card__footer">
-              <a onClick={()=>handleProfileClick(user.empid)} title="" className="card__btn cbtn btn-primary">Certificates</a>
-              <a onClick={()=>handleContactClick(user.empid)} className="card__btn cbtn contactbtn">Contact</a>
+              <a onClick={()=>handleProfileClick(user.id)} title="" className="card__btn cbtn btn-primary">Certificates</a>
+              <a onClick={()=>deleteUser(user.id)} className="card__btn cbtn contactbtn">Delete</a>
             </div>
           </div>
         </div>)

@@ -38,7 +38,7 @@ const AdminNavbar = () => {
   return (
     <div className='nav-container'>
       <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand href="#home">Credify-Admin</Navbar.Brand>
+      <Navbar.Brand href="/admindash">Credify-Admin</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="resp-navbar-nav">
         <Nav className="mr-auto">

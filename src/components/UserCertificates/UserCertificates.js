@@ -1,13 +1,15 @@
 import axios from 'axios';
 import React,{useEffect, useState} from 'react'
 import Certificate from '../Certificate/Certificate'
-import Popup from '../Popup/Popup'
+// import Popup from '../Popup/Popup'
 import './UserCertificates.css'
 
 const UserCertificates = (props) => {
+  console.log(props);
+  console.log('User certs userid props',props.match.params.userid);
   const [certs,getCerts] = useState('');
-  const [empid,setEmpid]=useState(props.match.params.empid);
-  let [trigger,setTrigger] = useState(false);
+  const [user_id,setUserid]=useState(props.match.params.userid);
+  // let [trigger,setTrigger] = useState(false);
   useEffect(()=>{
     getUserCerts();  
   },[]);
@@ -19,7 +21,7 @@ const UserCertificates = (props) => {
         'Authorization': `TOKEN ${localStorage.getItem('token')}` 
       }
     };
-    axios.post(url,{empid},options)
+    axios.post(url,{user_id},options)
     .then(response => {
       console.log(response.data);
       getCerts(response.data);
@@ -28,14 +30,15 @@ const UserCertificates = (props) => {
       console.log(error.response.status,error.response);
     });
   }
+  
   return(
     <>
     <h1 className='uc-title'>Users Certificates</h1> 
-    <button className="submit popup-btn" onClick={()=>setTrigger(true)}>Send Mail</button>
+    {/* <button className="submit popup-btn" onClick={()=>setTrigger(true)}>Send Mail</button> */}
     <div className="certcontainer">
       <Certificate certs={certs}/>
     </div> 
-    <Popup trigger={trigger} setTrigger={setTrigger} empid={empid} setEmpid={setEmpid} />
+    {/* <Popup trigger={trigger} setTrigger={setTrigger} userid={userid} setUserid={setUserid} /> */}
     </>
   );
 }

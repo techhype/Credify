@@ -1,9 +1,15 @@
 import react from 'react';
+import {useHistory} from 'react-router-dom'
 import '../Profile/profile.css'
 
 import '../../css/card.css'
+import { isAdmin } from '../../utils';
+import { useLocation } from 'react-router-dom'
+
 
 const Certificate= (props) => {
+  const loc = useLocation().pathname.slice(0,-2);
+  console.log(loc);
   console.log('Certifcates.js props:',props);
   const difDate = (d2) => {
     var today = new Date();
@@ -34,6 +40,12 @@ const Certificate= (props) => {
                 </div>
                 <div className="card-body">
                   <div className="card-title">{cert.certname}</div>
+                  {isAdmin() && 
+                  <>
+                  <div className="card-intro">Email: {cert.user.email}</div>
+                  <div className="card-intro">Employee ID: {cert.user.empid}</div>
+                  </>
+                  }
                   <div className="card-intro">{cert.csp}</div>
                   <div className="card-intro">Certification ID : {cert.certid}</div>
                   <div className="card-intro">Expiry Date : {cert.expiry_date}</div>
@@ -46,6 +58,8 @@ const Certificate= (props) => {
                 </div>
                 <div className='card-btn'>
                   <a target="_blank" style={{textDecoration:'none',fontSize:'18px'}} href={cert.pdf_url} className='submit'>View</a>  
+                {props.notifySingle ? <a onClick={()=>props.notifySingle(i)} style={{marginLeft:'110px',textDecoration:'none',fontSize:'18px'}} className="submit">Notify</a> : ''}
+                {(isAdmin() && loc==="/usercerts") || props.deleteCertificate ? <a onClick={()=>props.deleteCertificate(cert.id)} style={{cursor:'pointer',marginLeft:'110px',textDecoration:'none',fontSize:'18px'}} className="submit">Delete</a> : ''}
                 </div>
               </div>
           )

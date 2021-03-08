@@ -39,7 +39,7 @@ const AdminDashboard = () => {
       setAWSCertNamesTotal,
       setAzureCertNamesTotal
     );
-  },[]);
+  },[CSP]);
 
   const onChangeCsp = (e) => {
     setCSP(e.target.value);
