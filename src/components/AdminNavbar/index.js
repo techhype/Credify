@@ -19,7 +19,7 @@ const AdminNavbar = () => {
       }
     };
 
-    const url = 'https://credifybe.tk/logout'
+    const url = 'https://credify.tk/logout'
     axios.post(url,null,options)
       .then(function (response) {
         setIsLoggedin(false);

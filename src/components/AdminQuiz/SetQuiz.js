@@ -65,7 +65,7 @@ const SetQuiz = () => {
         console.log(responseid)
         console.log(questionsegment)
         
-        const url = "https://credifybe.tk/addquestions";
+        const url = "https://credify.tk/addquestions";
 
         axios.post(url, questionsegment)
             .then(function (response){
@@ -102,7 +102,7 @@ const SetQuiz = () => {
 
         }
         console.log(quiz);
-        const url = "https://credifybe.tk/addquiz";
+        const url = "https://credify.tk/addquiz";
 
         
         

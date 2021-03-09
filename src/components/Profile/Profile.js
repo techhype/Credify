@@ -11,7 +11,7 @@ const Profile = () => {
   var cert;
   useEffect(()=>{
     getAllCerts();
-    // const Userurl = 'https://credifybe.tk/user';
+    // const Userurl = 'https://credify.tk/user';
     // const options = {
     //   headers: { 
     //     'Authorization': `TOKEN ${localStorage.getItem('token')}` 
@@ -35,7 +35,7 @@ const Profile = () => {
   },[])
 
   const getAllCerts = () =>{
-    const Certurl = 'https://credifybe.tk/certificates';
+    const Certurl = 'https://credify.tk/certificates';
     const options = {
       headers: { 
         'Authorization': `TOKEN ${localStorage.getItem('token')}` 

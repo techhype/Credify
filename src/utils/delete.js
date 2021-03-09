@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const deleteCertificate = (certid) => {
-  const url = 'https://credifybe.tk/sendmail';
+  const url = 'https://credify.tk/sendmail';
   axios.delete(url,{headers:{'Authorization': `TOKEN ${localStorage.getItem('token')}`},data:{certid}})
   .then(response => {
     console.log(response.data);
@@ -14,7 +14,7 @@ export const deleteCertificate = (certid) => {
 
 
 export const deleteUser = (userid) => {
-  const url = 'https://credifybe.tk/sendmail';
+  const url = 'https://credify.tk/sendmail';
   axios.delete(url,{headers:{'Authorization': `TOKEN ${localStorage.getItem('token')}`},data:{userid}})
   .then(response => {
     console.log(response.data);

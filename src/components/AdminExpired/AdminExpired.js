@@ -14,7 +14,7 @@ const AdminExpired = () => {
   },[]);
 
   const getUserCerts = () =>{
-    const url = 'https://credifybe.tk/expired';
+    const url = 'https://credify.tk/expired';
     var options = {
       headers: { 
         'Authorization': `TOKEN ${localStorage.getItem('token')}` 

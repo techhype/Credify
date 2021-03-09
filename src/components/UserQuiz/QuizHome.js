@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 
 const QuizHome = () => {
 
-        console.log ("home rendered")
         /*var tests = [
                 {
                 sno:1,
@@ -16,7 +15,7 @@ const QuizHome = () => {
                
         ];*/
         
-        const url = "https://credifybe.tk/getquiz";
+        const url = "https://credify.tk/getquiz";
         const [tests,setTests] = useState([]);
 
 

@@ -3,7 +3,7 @@ const TOKEN_KEY = 'token';
 
 // const getUser = async(token) => {
     
-//     const url='https://credifybe.tk/user'
+//     const url='https://credify.tk/user'
 //     var options = {
 //       headers: { 
 //         'Authorization': `TOKEN ${token}` 

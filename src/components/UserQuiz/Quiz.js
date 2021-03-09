@@ -25,7 +25,7 @@ export default function Quiz() {
     const [score, setScore] = useState(0);
     const [startQuiz, setStartQuiz] = useState(true);
     
-    const url = "https://credifybe.tk/getquestions";
+    const url = "https://credify.tk/getquestions";
 
     //console.log(id);
     const [questions, setQuestions] = useState([]);

@@ -10,7 +10,7 @@ const AdminAllCerts = (props) => {
   },[]);
 
   const getUserCerts = () =>{
-    const url = 'https://credifybe.tk/alluserscertificates';
+    const url = 'https://credify.tk/alluserscertificates';
     var options = {
       headers: { 
         'Authorization': `TOKEN ${localStorage.getItem('token')}` 

@@ -80,7 +80,7 @@ export const readExcelFile = (event) => {
     const Questions_Data = {...convertToObject(dataArray),'quizid':2};
     console.log(Questions_Data);
 
-    const url = "https://credifybe.tk/addquestions"; 
+    const url = "https://credify.tk/addquestions"; 
     var options = {
       headers: { 
         'Authorization': `TOKEN ${window.localStorage.getItem('token')}`

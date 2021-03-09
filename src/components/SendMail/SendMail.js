@@ -8,7 +8,7 @@ const SendMail = (props) => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    const url = 'https://credifybe.tk/sendmail'
+    const url = 'https://credify.tk/sendmail'
     var options = {
       headers: { 
         'Authorization': `TOKEN ${localStorage.getItem('token')}` 
