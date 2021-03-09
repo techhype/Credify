@@ -17,6 +17,10 @@ import PublicRoute from './routes/PublicRoute';
 import AdminRoute from './routes/AdminRoute';
 import AdminExpired from './components/AdminExpired/AdminExpired';
 import AdminExpiring from './components/AdminExpiring/AdminExpiring';
+import SetQuiz from './components/AdminQuiz/SetQuiz' 
+import QuizHome from './components/UserQuiz/QuizHome' 
+import Quiz from './components/UserQuiz/Quiz' 
+
 
 const App = () => {
   return (
@@ -31,10 +35,13 @@ const App = () => {
       <AdminRoute component={AdminExpiring} path="/adminexpiring" exact />
       <AdminRoute component={Users} path="/users" exact />
       <AdminRoute component={UserCertificates} path="/usercerts/:userid" exact />
+      <AdminRoute component={SetQuiz} path="/adminsetquiz" exact />
       <AdminRoute component={SendMail} path="/sendmail" exact />
       <PrivateRoute component={Dashboard} path="/dashboard" exact />
       <PrivateRoute component={Upload} path="/upload" exact />
       <PrivateRoute component={Profile} path="/profile" exact />
+      <PrivateRoute component={QuizHome} path="/quizhome" exact />
+      <PrivateRoute component={Quiz} path="/quiz/:id" exact />
     </Router>
   );
 }

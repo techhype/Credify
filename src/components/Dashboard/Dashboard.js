@@ -22,6 +22,12 @@ const Home = () => {
             <button type="button" className='submit s__btn'>My Certificates</button>
           </Link>
         </div>
+        {/* <div className='card card-3'> */}
+          <Link to="/quizhome" style={{textDecoration:'none'}}>
+            {/* <img className='btnImg' src={profileImg} alt="profile"/> */}
+            <button type="button" className='submit s__btn'>Quiz Home</button>
+          </Link>
+        {/* </div> */}
       </div>
       <Logout className='logout'/>
     </div>

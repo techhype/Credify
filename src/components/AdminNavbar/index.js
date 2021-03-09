@@ -51,6 +51,10 @@ const AdminNavbar = () => {
             <NavDropdown.Divider />
             <NavDropdown.Item href="/adminexpired">Expired Certificates</NavDropdown.Item>
           </NavDropdown>
+          <NavDropdown title="Quiz" id="basic-nav-dropdown">
+            <NavDropdown.Item href="/adminsetquiz">Create New Quiz</NavDropdown.Item>
+            <NavDropdown.Divider />
+          </NavDropdown>
         </Nav>
         <Nav>
           <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
