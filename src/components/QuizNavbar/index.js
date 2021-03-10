@@ -6,9 +6,7 @@ import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-
-const AdminNavbar = () => {
+const QuizNavbar = () => {
   const [isLoggedin,setIsLoggedin] = useState(isLogin());
   let history = useHistory();
 
@@ -38,22 +36,14 @@ const AdminNavbar = () => {
   return (
     <div className='nav-container'>
       <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand href="/admindash">credify-Admin</Navbar.Brand>
+      <Navbar.Brand href="/quizsetquiz">Credify-Quiz</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="resp-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="/admindash">Dashboard</Nav.Link>
-          <Nav.Link href="/users">Users</Nav.Link>
-          <NavDropdown title="Certificates" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/adminallcerts">All Certificates</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="/adminexpiring">Expiring Certificates</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="/adminexpired">Expired Certificates</NavDropdown.Item>
-          </NavDropdown>
-          <Nav.Link href="/quizsetquiz">Quiz</Nav.Link>
+          <Nav.Link href="/quizsetquiz">New Quiz</Nav.Link>
         </Nav>
         <Nav>
+          <Nav.Link href="/admindash">Admin Dashboard</Nav.Link>
           <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
         </Nav>
       </Navbar.Collapse>
@@ -62,4 +52,4 @@ const AdminNavbar = () => {
   );
 };
 
-export default AdminNavbar;
+export default QuizNavbar;

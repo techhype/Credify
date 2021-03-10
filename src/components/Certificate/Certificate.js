@@ -5,6 +5,9 @@ import '../Profile/profile.css'
 import '../../css/card.css'
 import { isAdmin } from '../../utils';
 import { useLocation } from 'react-router-dom'
+import GCP from '../../img/GCP.png'
+import AWS from '../../img/AWS.png'
+import Azure from '../../img/Azure.png'
 
 
 const Certificate= (props) => {
@@ -30,11 +33,11 @@ const Certificate= (props) => {
               <div key={i} className="c-card">
                 <div className="card-img" >
                   { cert.csp==='GCP' ?
-                  <img src="https://www.credify.tk/static/media/GCP.1985723b.png" alt="Google Cloud Platform" />
+                  <img src={GCP} alt="Google Cloud Platform" />
                     : cert.csp==='AWS' ?
-                  <img src="https://www.credify.tk/static/media/AWS.6409eb93.png" alt="Amazon Web Services" />
+                  <img src={AWS} alt="Amazon Web Services" />
                     :
-                  <img src="https://www.credify.tk/static/media/Azure.81bf95e5.png" alt="Microsoft Azure" />
+                  <img src={Azure} alt="Microsoft Azure" />
                   }
                 </div>
                 <div className="card-body">

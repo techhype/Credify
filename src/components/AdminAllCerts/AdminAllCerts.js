@@ -16,7 +16,13 @@ const AdminAllCerts = (props) => {
         'Authorization': `TOKEN ${localStorage.getItem('token')}` 
       }
     };
-    const sbu = props.location.state.sbu ? {sbu:props.location.state.sbu} : null; 
+    let sbu;
+    try{
+      sbu = props.location.state.sbu ? {sbu:props.location.state.sbu} : null; 
+    }
+    catch(e){
+      sbu=null; 
+    }
     axios.post(url,sbu,options)
     .then(response => {
       console.log(response.data);

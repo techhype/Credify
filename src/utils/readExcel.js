@@ -12,7 +12,8 @@ const convertToObject = (arr) => {
     
 
 
-export const readExcelFile = (event) => {
+export const readExcelFile = (quizid,event) => {
+  console.log(event);
   console.log(event.target.files[0]);
   const file =  event.target.files[0];
   const promise = new Promise((resolve,reject)=>{
@@ -77,7 +78,7 @@ export const readExcelFile = (event) => {
         }
     )
     })
-    const Questions_Data = {...convertToObject(dataArray),'quizid':2};
+    const Questions_Data = {...convertToObject(dataArray),'quizid':quizid};
     console.log(Questions_Data);
 
     const url = "https://credify.tk/addquestions"; 
@@ -89,6 +90,7 @@ export const readExcelFile = (event) => {
     axios.post(url,Questions_Data,options)
     .then(response => {
       console.log(response);
+      alert('NEW QUIZ CREATED')
     })
     .catch(error=>{
       console.log(error);

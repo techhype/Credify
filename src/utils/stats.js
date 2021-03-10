@@ -52,8 +52,8 @@ export const getStats = (
   setGcpLevelTotal,
   setAwsLevelTotal,
   setAzureLevelTotal,
-  setAWSCertNamesTotal,
   setGCPCertNamesTotal,
+  setAWSCertNamesTotal,
   setAzureCertNamesTotal) => {
   const url = "https://credify.tk/adminhome"; 
   var options = {
@@ -126,9 +126,10 @@ export const getStats = (
     setGcpLevelTotal(gcpLevelCount);
     setAwsLevelTotal(awsLevelCount);
     setAzureLevelTotal(azureLevelCount);
-    setAWSCertNamesTotal(awsCerts);
     setGCPCertNamesTotal(gcpCerts);
+    setAWSCertNamesTotal(awsCerts);
     setAzureCertNamesTotal(azureCerts);
+    console.log(gcpCerts);
   })
   .catch(error =>{
     console.log(error);

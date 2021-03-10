@@ -6,6 +6,7 @@ import { deleteCertificate } from '../../utils/delete';
 const AdminExpired = () => {
   const [certs,getCerts] = useState('');
   const [isLoading,setIsLoading] = useState(true);
+  
   useEffect(()=>{
     setTimeout(() => {
       setIsLoading(false)

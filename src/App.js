@@ -17,9 +17,11 @@ import PublicRoute from './routes/PublicRoute';
 import AdminRoute from './routes/AdminRoute';
 import AdminExpired from './components/AdminExpired/AdminExpired';
 import AdminExpiring from './components/AdminExpiring/AdminExpiring';
-import SetQuiz from './components/AdminQuiz/SetQuiz' 
 import QuizHome from './components/UserQuiz/QuizHome' 
 import Quiz from './components/UserQuiz/Quiz' 
+import AddNewQuestions from './components/AdminQuiz/AddNewQuestions';
+import SetQuestions from './components/AdminQuiz/SetQuestions';
+import NewQuiz from './components/AdminQuiz/NewQuiz';
 
 
 const App = () => {
@@ -35,7 +37,9 @@ const App = () => {
       <AdminRoute component={AdminExpiring} path="/adminexpiring" exact />
       <AdminRoute component={Users} path="/users" exact />
       <AdminRoute component={UserCertificates} path="/usercerts/:userid" exact />
-      <AdminRoute component={SetQuiz} path="/adminsetquiz" exact />
+      <AdminRoute component={NewQuiz} path="/quizsetquiz" exact />
+      <AdminRoute component={AddNewQuestions} path="/quizaddnewquests" exact />
+      <AdminRoute component={SetQuestions} path="/quizsetnewquests" exact />
       <AdminRoute component={SendMail} path="/sendmail" exact />
       <PrivateRoute component={Dashboard} path="/dashboard" exact />
       <PrivateRoute component={Upload} path="/upload" exact />
