@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 
+// import './NewQuiz.css'
+
 const NewQuiz = () => {
   const history = useHistory();
   const [quizDetails,setQuizDetails] = useState(
@@ -43,6 +45,7 @@ const NewQuiz = () => {
   return (
     <div>
       <form action="" className="set-quiz-form container">
+        <h1 className="h1addquiz">Add a quiz</h1><br></br>
         <div className="quiz-form-field">
           <label className="form-label Name">Name</label>
           <input type="text" className="form-inputs Name"
@@ -52,7 +55,7 @@ const NewQuiz = () => {
           />
         </div>
         <div className="quiz-form-field">
-          <label className="form-label Category">Category</label>
+          <label className="form-label Category">Category</label><br></br>
           <select className="form-inputs Category" 
               value={quizDetails.category}
               onChange={(e)=>setQuizDetails({...quizDetails,category:e.target.value})}
@@ -64,7 +67,7 @@ const NewQuiz = () => {
           </select>
         </div>
         <div className="quiz-form-field">
-            <label className="form-label Sub-Category">Sub-Category</label>
+            <label className="form-label Sub-Category">Sub-Category</label><br></br>
             <select className="form-inputs Sub-Category" 
             onChange={(e)=>setQuizDetails({...quizDetails,subcategory:e.target.value})}
             required
@@ -76,7 +79,7 @@ const NewQuiz = () => {
             </select>
         </div>
         <div className="quiz-form-field">
-            <label className="form-label Description">Description</label>
+            <label className="form-label Description">Description</label><br></br>
             <textarea className="form-inputs Description" 
                 onChange={(e)=>setQuizDetails({...quizDetails,description:e.target.value})}
                 required
@@ -106,7 +109,7 @@ const NewQuiz = () => {
             className="form-inputs Total-Ques" 
             onChange={(e)=>setQuizDetails({...quizDetails,total_questions:Number(e.target.value)})}
             />
-        </div>
+        </div><br></br>
         <div className="quiz-form-field">
             <button className="form-submit-button" onClick={handleQuizSubmit}>Create</button>
         </div>

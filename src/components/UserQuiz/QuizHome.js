@@ -1,80 +1,126 @@
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import { useEffect, useState } from "react";
+import './QuizHome.css'
+import { isAdmin } from "../../utils";
+import { propTypes } from "react-bootstrap/esm/Image";
 
-const QuizHome = () => {
+const QuizHome = (props) => {
 
-        /*var tests = [
+  let [category,setCategory] = useState(null);
+  let [subcategory,setSubcategory] = useState(null);
+  const [tests, setTests] = useState([]);
+  const GCPcategory = ['General','Compute Engine', 'App Engine', 'Cloud Functions', 'Cloud Storage','Kubernetes Engine','BigQuery']
+  const AWScategory = ['General','EC2', 'Elastic Beanstack', 'Lambda Functions'] 
+  let  scategory;
+  
+  useEffect(() => {
+    getQuiz(category=null,subcategory=null);
+  },[]);
+
+  const getQuiz = (category,subcategory) => {
+    let reqbody=null;
+    reqbody = category && subcategory ? {category,subcategory} : category ? {category} : null;   
+    const url = "https://credify.tk/getquiz";
+    var options = {
+      headers: { 
+          'Authorization': `TOKEN ${localStorage.getItem('token')}` 
+      }
+    }
+    axios
+      .post(url,reqbody,options)
+      .then(function (response) {
+        setTests(response.data);
+      })
+      .catch(function (err) {
+        console.log("error message", err.message);
+      });
+  }
+
+  if(category==='GCP'){
+    scategory = GCPcategory.map(sub=><option key={sub}>{sub}</option>)
+  }
+  else{
+    scategory = AWScategory.map(sub=><option key={sub}>{sub}</option>)
+  }
+
+  const handleFilter = (e) => {
+    e.preventDefault();
+    getQuiz(category,subcategory)
+  }
+  console.log(tests);
+
+  return (
+    <div className="quiz-home">
+      {tests.length == 0 ? (
+        <div className="loading">Loading Quiz...</div>
+      ) : (
+        <>
+        <form className="filter-form" onSubmit={handleFilter}>
+          <select name="category" onChange={(e)=>setCategory(e.target.value)}>
+          <option className='disabled' defaultValue value>Select CSP</option>
+            <option value="GCP">GCP</option>
+            <option value="AWS">AWS</option>
+          </select>
+          <select name="subcategory" onChange={(e)=>setSubcategory(e.target.value)}>
+          <option className='disabled' defaultValue value>Select a topic</option>
+          {scategory}
+          </select>
+          <input type="submit" className="submit filter-btn" value="Filter"/>
+        </form>
+        <div className='table-container quizhome-container'>
+        <table className='quiz-table quizhome-table'>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Sub Category</th>
+              <th>Marks</th>
+              <th>Time Limit</th>
+              <th>Total Questions</th>
+              {isAdmin() ? <th>Delete Quiz</th> : <th>Start Test</th>}
+            </tr>
+          </thead>
+          <tbody>
+            {tests.map((test, i) => (
+              <tr key={i}>
+                <td>{i+1}</td>
+                <td>{test.name}</td>
+                <td>{test.category}</td>
+                <td>{test.subcategory}</td>
+                <td>{test.marks}</td>
+                <td>{test.timelimit}</td>
+                <td>{test.total_questions}</td>
+                <td>
                 {
-                sno:1,
-                topic:"GCP",
-                totalQuestions:10,
-                marks:20,
-                timelimit:2
-                 }
-               
-        ];*/
-        
-        const url = "https://credify.tk/getquiz";
-        const [tests,setTests] = useState([]);
-
-
-        useEffect( () => {
-                axios.post(url, {
-                        category: "GCP"
-                })
-                        .then(function (response) {
-                                console.log(response.status);
-                                console.log((response.data))
-                                setTests(response.data);
-                                console.log(tests);
-                        })
-                        .catch(function (err) {
-                                console.log("error message", err.message);
-                        })
-                },[]
-
-        )
-
-
-
-        console.log(tests);
-
-        return ( 
-        <div className="Home container">
-                <h2>All body parts are working</h2>
-                
-                        <table>
-                                <tr>
-                                        <th>Id</th>
-                                        <th>Name</th>
-                                        <th>sub Category</th>
-                                        <th>Marks</th>
-                                        <th>Time Limit</th>
-                                        <th>Total Questions</th>
-                                        <th>Start Test</th>
-                                </tr>
-
-                        {(tests.length == 0) ? (<div className="loading">loading quiz...</div> ) :
-
-                        (tests.map((test) => (
-
-                                <tr>
-                                        <td>{test.id}</td>
-                                        <td>{test.name}</td>
-                                        <td>{test.subcategory}</td>
-                                        <td>{test.marks}</td>
-                                        <td>{test.timelimit}</td>
-                                        <td>{test.total_questions}</td>
-                                        <td><Link className="table-button"
-                                                to={`/quiz/${test.id}`}
-                                        >begin</Link></td>
-                                </tr>
-
-                        )))}
-                         </table>       
+                  isAdmin() ? <button className='submit delete-quiz' onClick={()=>props.deleteQuiz(test.id)}>Delete Quiz</button> : (
+                    <Link className="table-button" 
+                        to={{
+                            pathname:`/quiz/${test.id}`,
+                            timelimit:test.timelimit,
+                            marks:test.marks,
+                        }} 
+                    >
+                    begin
+                    </Link>
+                  )
+                }
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         </div>
-     );
-}
- 
+        </>
+      )}
+    </div>
+  );
+};
+
 export default QuizHome;

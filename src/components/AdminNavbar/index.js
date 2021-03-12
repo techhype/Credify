@@ -38,20 +38,20 @@ const AdminNavbar = () => {
   return (
     <div className='nav-container'>
       <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand href="/admindash">credify-Admin</Navbar.Brand>
+      <Navbar.Brand href="/admindash">Admin</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="resp-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="/admindash">Dashboard</Nav.Link>
-          <Nav.Link href="/users">Users</Nav.Link>
-          <NavDropdown title="Certificates" id="basic-nav-dropdown">
+          {/* <Nav.Link href="/admindash">Dashboard</Nav.Link> */}
+          <Nav.Link href="/users">Manage Users</Nav.Link>
+          <NavDropdown title="Manage Certificates" id="basic-nav-dropdown">
             <NavDropdown.Item href="/adminallcerts">All Certificates</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="/adminexpiring">Expiring Certificates</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="/adminexpired">Expired Certificates</NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link href="/quizsetquiz">Quiz</Nav.Link>
+          <Nav.Link href="/quizsetquiz">Manage Quiz</Nav.Link>
         </Nav>
         <Nav>
           <Nav.Link onClick={handleLogout}>Logout</Nav.Link>

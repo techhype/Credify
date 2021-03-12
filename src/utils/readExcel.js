@@ -9,6 +9,11 @@ const convertToObject = (arr) => {
   }
   return result;
 }
+
+function stringEscape(s) {
+    return s ? s.replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/\t/g,'\\t').replace(/\v/g,'\\v').replace(/'/g,"\\'").replace(/"/g,'\\"').replace(/[\x00-\x1F\x80-\x9F]/g,hex) : s;
+    function hex(c) { var v = '0'+c.charCodeAt(0).toString(16); return '\\x'+v.substr(v.length-2); }
+}
     
 
 
@@ -54,30 +59,31 @@ export const readExcelFile = (quizid,event) => {
       }
       return (
           {
-          'text':qa.Question,
-          'explanation':qa.Explanation,
+          'text':stringEscape(qa.Question),
+          'explanation':stringEscape(qa.Explanation),
           'question_type':qa.Type.toLowerCase(),
           'choices':[
             {
-              'text':qa['Choice 1'],
+              'text':stringEscape(qa['Choice 1']),
               'is_correct':iscorrectArray[0]                
             },
             {
-              'text':qa['Choice 2'],
+              'text':stringEscape(qa['Choice 2']),
               'is_correct':iscorrectArray[1]
             },
             {
-              'text':qa['Choice 3'],
+              'text':stringEscape(qa['Choice 3']),
               'is_correct':iscorrectArray[2]
             },
             {
-              'text':qa['Choice 4'],
+              'text':stringEscape(qa['Choice 4']),
               'is_correct':iscorrectArray[3]
             }
           ]
         }
     )
     })
+    console.log(dataArray);
     const Questions_Data = {...convertToObject(dataArray),'quizid':quizid};
     console.log(Questions_Data);
 

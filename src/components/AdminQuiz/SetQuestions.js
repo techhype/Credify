@@ -2,6 +2,8 @@ import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom';
 
+// import './NewQuiz.css'
+
 const SetQuestions = (props) => {
   /* Quiz question set parameters */
   const quizid = props.location.state.quizid;
@@ -27,8 +29,8 @@ const SetQuestions = (props) => {
 
   const handleQuestionsSubmit = () => {
     console.log('Finish button clicked');
-    setQuestionNumber(1);
-    clearQuestionFields();
+    // setQuestionNumber(1);
+    // clearQuestionFields();
     const reqBody={...convertToObject(Questions),'quizid':quizid}
     console.log(reqBody);
     
@@ -82,17 +84,12 @@ const SetQuestions = (props) => {
           {/* Set Questions {questionNumber}/{totalques} */}
         </div>
         <div className="qa-block">
+        Q.No.{questionNumber}<br></br><br></br>
           <input type="text" required className="question-text"
           
           onChange={(e)=>setText(e.target.value)}
           placeholder="Enter question"
           value={text}
-          />
-          <input type="text" required className="explanation-text"
-              
-              onChange={(e)=>setExplanation(e.target.value)}
-              placeholder="Enter answer explanation"
-              value={explanation}
           />
           <label className="option-type">answer type:</label>
           <select 
@@ -148,8 +145,15 @@ const SetQuestions = (props) => {
                   placeholder="option D"
                   onChange={(e)=>setAnswerD({...answerD,text:e.target.value})}
                   value={answerD.text} />
+                
             </div>
           </div>
+          <input type="text" required className="explanation-text"
+              
+              onChange={(e)=>setExplanation(e.target.value)}
+              placeholder="Enter answer explanation"
+              value={explanation}
+          />
           {/* <button className="next-question-set" onClick={handleNextButton}>next</button> */}
           {(questionNumber !== total_questions) && <button className="next-question-set" onClick={handleNextButton}>next</button>}
           {(questionNumber === total_questions) && <button className="finishquestionset" onClick={handleFinishButton}>finish</button>}

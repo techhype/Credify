@@ -32,7 +32,7 @@ const AddNewQuestions = (props) => {
     {
       !isClicked && (<>
         <h3>OR</h3>
-      <button onClick={handleManualQuestInput} type='submit'>Add Questions Manually</button>
+      <button onClick={handleManualQuestInput} type='submit' className="form-submit-button">Add Questions Manually</button>
       </>)
     }
             

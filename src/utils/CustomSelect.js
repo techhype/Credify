@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import { isAdmin } from '.';
 import '../css/cselect.css'
 
 
@@ -129,10 +130,12 @@ const CustomSelect = (props) => {
   } 
 
   return (
-    <div>
+    <div style={isAdmin() ? props.selectstyle : '' }>
         <div className="cselect">  
           <label htmlFor="Cloud Service Provider">Cloud Service Provider</label>
-          <select onChange={handleCSPSelect} name="Cloud Service Provider" required> 
+          <select 
+            onChange={isAdmin() ? (e)=>{handleCSPSelect(e);props.handleCspSelect(e.target.value)} : handleCSPSelect} 
+            name="Cloud Service Provider" required> 
             <option className='disabled' defaultValue value>  select an option  </option>
             <option>GCP</option> 
             <option>AWS</option> 
@@ -141,7 +144,9 @@ const CustomSelect = (props) => {
         </div> 
         <div className="cselect"> 
           <label htmlFor="Cloud Certification Level">Cloud Certification Level</label>
-          <select onChange={handleLevelSelect} required> 
+          <select
+           onChange={isAdmin() ? (e)=>{handleLevelSelect(e);props.handleCertLevelSelect(e.target.value)} : handleLevelSelect} 
+           required> 
           <option className='disabled' defaultValue value>  select an option  </option>
             { 
               certlevels 
@@ -150,7 +155,9 @@ const CustomSelect = (props) => {
         </div> 
         <div className="cselect"> 
           <label htmlFor="Cloud Certification Name">Cloud Certification Name</label>
-          <select onChange={handleCertDetails} required> 
+          <select 
+          onChange={isAdmin() ? (e)=>{props.handleCertNameSelect(e.target.value)} : handleCertDetails} 
+          required> 
           <option className='disabled' defaultValue value>  select an option  </option>
             { 
               certnames 

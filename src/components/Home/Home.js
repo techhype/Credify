@@ -16,7 +16,12 @@ const Home = () => {
     </>
     )
   else if(isLogin() && isAdmin()===false)
-    return <Dashboard/>;
+    return (
+      <>
+        <AdminNavbar />
+        <Dashboard/>
+      </>
+    ) 
   else 
     return <Login/>;
 }

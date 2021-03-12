@@ -3,11 +3,13 @@ import {Pie} from 'react-chartjs-2'
 
 const PieChart = (props) => {
   return (
+    <>
+    {/* <h2>Analysis</h2> */}
     <Pie
       data={{
         labels: ['GCP','AWS','Azure'],
         datasets: [{
-          label:'#CSP ',
+          label:'CSP',
           data: props.cspTotal,
           backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -23,7 +25,7 @@ const PieChart = (props) => {
         }]
       }}
       width={100}
-      height={40}
+      height={25}
       options={{
         // responsive: true,
         // maintainAspectRatio:false,
@@ -39,6 +41,8 @@ const PieChart = (props) => {
         }
       }}
     />
+    {/* <br></br> */}
+    </>
   );
 }
 

@@ -1,0 +1,25 @@
+.answer-options{
+  display: flex;
+  flex-direction: row;
+
+}
+.answer-options > input{
+  margin-right: 30px;
+  position: relative;
+  top:6px;
+}
+.question-text{
+  margin: 30px 0;
+}
+
+.report-container{
+  /* text-align: center;   */
+  /* margin-left: 70px;
+  margin-top: 60px; */
+  margin: 60px 70px;
+}
+
+.question-count{
+  font-size: 1.6em;
+}
+

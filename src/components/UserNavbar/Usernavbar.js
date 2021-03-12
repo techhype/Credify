@@ -6,7 +6,9 @@ import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const QuizNavbar = () => {
+
+
+const UserNavbar = () => {
   const [isLoggedin,setIsLoggedin] = useState(isLogin());
   let history = useHistory();
 
@@ -36,17 +38,17 @@ const QuizNavbar = () => {
   return (
     <div className='nav-container'>
       <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand href="/quizsetquiz">Credify-Quiz</Navbar.Brand>
+      <Navbar.Brand href="/dashboard">Credify</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="resp-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="/quizsetquiz">New Quiz</Nav.Link>
-          <Nav.Link href="/quizadminrankings">Quiz Rankings</Nav.Link>
-          <Nav.Link href="/quizfeedback">Quiz Feedbacks</Nav.Link>
-          <Nav.Link href="/quizlist">List Quiz</Nav.Link>
+          <Nav.Link href="/upload">Upload Creds</Nav.Link>
+          <Nav.Link href="/profile">My Creds</Nav.Link>
+          <Nav.Link href="/quizhome">New Quiz</Nav.Link>
+          <Nav.Link href="/quizrankings">Quiz Rankings</Nav.Link>
+          <Nav.Link href="/quizhistory">Quiz History</Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Link href="/admindash">Admin Dashboard</Nav.Link>
           <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
         </Nav>
       </Navbar.Collapse>
@@ -55,4 +57,4 @@ const QuizNavbar = () => {
   );
 };
 
-export default QuizNavbar;
+export default UserNavbar;

@@ -50,7 +50,7 @@ const Users = (props) => {
   }
   return(
     <>
-    <h1>Users</h1>
+    <h1 style={{marginLeft:'60px',marginTop:'30px'}}>Users</h1>
     {/* <Popup trigger={trigger} setTrigger={setTrigger} userid={userid} setUserid={setUserid} /> */}
     <div className="ucontainer">
     { allUsers.length>0  ?

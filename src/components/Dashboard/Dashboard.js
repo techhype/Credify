@@ -1,10 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import Logout from '../Logout/Logout'
 import '../../css/Button.css'
 import './dashboard.css'
 import uploadImg from '../../img/upload.png'
 import profileImg from '../../img/certificates.png'
+import quizImg from '../../img/quiz.png'
 const Home = () => {
   return (
     <div className="dcontainer">
@@ -22,14 +22,13 @@ const Home = () => {
             <button type="button" className='submit s__btn'>My Certificates</button>
           </Link>
         </div>
-        {/* <div className='card card-3'> */}
+        <div className='card card-3'>
           <Link to="/quizhome" style={{textDecoration:'none'}}>
-            {/* <img className='btnImg' src={profileImg} alt="profile"/> */}
-            <button type="button" className='submit s__btn'>Quiz Home</button>
+            <img className='btnImg' src={quizImg} alt="profile"/>
+            <button type="button" className='submit s__btn'>Quiz</button>
           </Link>
-        {/* </div> */}
+        </div>
       </div>
-      <Logout className='logout'/>
     </div>
   );
 }

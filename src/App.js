@@ -11,7 +11,7 @@ import AdminDashboard from './components/AdminDashboard/AdminDashboard'
 import AdminAllCerts from './components/AdminAllCerts/AdminAllCerts'
 import Users from './components/Users/Users'
 import UserCertificates from './components/UserCertificates/UserCertificates'
-import SendMail from './components/SendMail/SendMail'
+// import SendMail from './components/SendMail/SendMail'
 import PrivateRoute from './routes/PrivateRoute';
 import PublicRoute from './routes/PublicRoute';
 import AdminRoute from './routes/AdminRoute';
@@ -19,9 +19,14 @@ import AdminExpired from './components/AdminExpired/AdminExpired';
 import AdminExpiring from './components/AdminExpiring/AdminExpiring';
 import QuizHome from './components/UserQuiz/QuizHome' 
 import Quiz from './components/UserQuiz/Quiz' 
+import AdminFeedback from './components/AdminFeedback/AdminFeedback'
 import AddNewQuestions from './components/AdminQuiz/AddNewQuestions';
 import SetQuestions from './components/AdminQuiz/SetQuestions';
 import NewQuiz from './components/AdminQuiz/NewQuiz';
+import UserFeedback from './components/UserFeedback/UserFeedback';
+import QuizRankings from './components/QuizRankings/QuizRankings';
+import QuizHistory from './components/QuizHistory/QuizHistory';
+import ListQuiz from './components/AdminQuiz/ListQuiz';
 
 
 const App = () => {
@@ -40,12 +45,19 @@ const App = () => {
       <AdminRoute component={NewQuiz} path="/quizsetquiz" exact />
       <AdminRoute component={AddNewQuestions} path="/quizaddnewquests" exact />
       <AdminRoute component={SetQuestions} path="/quizsetnewquests" exact />
-      <AdminRoute component={SendMail} path="/sendmail" exact />
+      <AdminRoute component={SetQuestions} path="/quizsetnewquests" exact />
+      <AdminRoute component={AdminFeedback} path="/quizfeedback" exact />
+      <AdminRoute component={QuizRankings} path="/quizadminrankings" exact />
+      <AdminRoute component={ListQuiz} path="/quizlist" exact />
+      {/* <AdminRoute component={SendMail} path="/sendmail" exact /> */}
       <PrivateRoute component={Dashboard} path="/dashboard" exact />
       <PrivateRoute component={Upload} path="/upload" exact />
       <PrivateRoute component={Profile} path="/profile" exact />
       <PrivateRoute component={QuizHome} path="/quizhome" exact />
       <PrivateRoute component={Quiz} path="/quiz/:id" exact />
+      <PrivateRoute component={UserFeedback} path="/userquizfeedback" exact />
+      <PrivateRoute component={QuizRankings} path="/quizrankings" exact />
+      <PrivateRoute component={QuizHistory} path="/quizhistory" exact />
     </Router>
   );
 }

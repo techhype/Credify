@@ -5,13 +5,14 @@ const LevelBarChart = (props) => {
   console.log('LevelBarCHart',props);
   return (
     <>
-    <h1>Bar chart</h1>
+    <br/><br/>
+    <h3>Certification level Count</h3>
     <Bar
       data={{
         labels:props.levelNames,
         datasets:[
           {
-            label:'#Certification level Count',
+            label:'Certification Level Count',
             data:props.levelTotal,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -27,8 +28,8 @@ const LevelBarChart = (props) => {
           }
         ]
       }}
-      width={100}
-      height={50}
+      width={60}
+      height={20}
       options={{
         responsive:true,
         // maintainAspectRatio:false,

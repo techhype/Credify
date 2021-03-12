@@ -45,7 +45,7 @@ const AdminDashboard = () => {
       setAWSCertNamesTotal,
       setAzureCertNamesTotal
     );
-  },[SBU]);
+  },[CSP,SBU]);
 
   const onChangeCsp = (e) => {
     setCSP(e.target.value);
@@ -54,7 +54,8 @@ const AdminDashboard = () => {
   const handleTotalCertsClick = () => {
     history.push({
       pathname: '/adminallcerts',
-      state: { sbu: SBU }
+      sbu: SBU,
+      fromdashboard: true
     })
   } 
 
