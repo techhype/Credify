@@ -44,6 +44,7 @@ const QuizNavbar = () => {
           <Nav.Link href="/quizadminrankings">Quiz Rankings</Nav.Link>
           <Nav.Link href="/quizfeedback">Quiz Feedbacks</Nav.Link>
           <Nav.Link href="/quizlist">List Quiz</Nav.Link>
+          <Nav.Link href="/quizstats">User Quiz Stats</Nav.Link>
         </Nav>
         <Nav>
           <Nav.Link href="/admindash">Admin Dashboard</Nav.Link>

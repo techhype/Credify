@@ -6,10 +6,10 @@ import CustomSelect from '../../utils/CustomSelect'
 
 const AdminAllCerts = (props) => {
   const [certs,getCerts] = useState('');
-  const [cspSelected,setcspSelected] = useState('');
-  const [levelSelected,setlevelSelected] = useState('');
-  const [nameSelected,setnameSelected] = useState('');
-  const [sbuSelected,setsbuSelected] = useState('');
+  const [cspSelected,setcspSelected] = useState(null);
+  const [levelSelected,setlevelSelected] = useState(null);
+  const [nameSelected,setnameSelected] = useState(null);
+  const [sbuSelected,setsbuSelected] = useState(null);
 
   useEffect(()=>{
     getUserCerts();  
@@ -42,6 +42,7 @@ const AdminAllCerts = (props) => {
         });
       }
       else{
+        console.log('sbu:',sbuSelected);
         let reqbody = null;
         reqbody = sbuSelected && cspSelected && levelSelected && nameSelected ? {sbu:sbuSelected,csp:cspSelected,level:levelSelected,certname:nameSelected} :
                   sbuSelected && cspSelected && levelSelected ? {sbu:sbuSelected,csp:cspSelected,level:levelSelected} :
@@ -85,8 +86,8 @@ const AdminAllCerts = (props) => {
     <>
       <h1 style={{fontSize:'1.8em',marginTop:'25px',marginLeft:'50px'}}>All Certificates</h1>
       <div style={{display:'flex'}}>
-        <select style={{marginTop:'67px'}} name="sbu-select" onChange={(e)=>setsbuSelected(e.target.value)}>
-          <option className='disabled' defaultValue value>  select an option  </option>
+        <select style={{marginTop:'67px'}} name="sbu-select" onChange={(e)=>setsbuSelected(e.target.value||null)}>
+          <option className='disabled' defaultValue value=''>  select an option  </option>
           <option>SBU 1</option>
           <option>SBU 2</option>
           <option>SBU 3</option>

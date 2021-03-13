@@ -182,6 +182,7 @@ export default function Quiz(props) {
                 axios.post(url,formData,options)
                 .then(response=>{
                     console.log(response);
+                    alert('PDF Report Sent to your Email')
                 })
                 .catch(error=>{
                     console.log(error);

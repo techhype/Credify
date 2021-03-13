@@ -15,6 +15,10 @@
   /* font-size: .8rem; */
 
 }
+/* .quizhome-table :is(td){
+  word-wrap:break-word
+    overflow-x:auto;
+} */
 
 .quiz-home{
   height: 100vh;

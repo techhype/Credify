@@ -27,6 +27,8 @@ import UserFeedback from './components/UserFeedback/UserFeedback';
 import QuizRankings from './components/QuizRankings/QuizRankings';
 import QuizHistory from './components/QuizHistory/QuizHistory';
 import ListQuiz from './components/AdminQuiz/ListQuiz';
+import QuizStats from './components/QuizStats/QuizStats';
+import QuizCharts from './components/QuizStats/QuizCharts';
 
 
 const App = () => {
@@ -45,10 +47,11 @@ const App = () => {
       <AdminRoute component={NewQuiz} path="/quizsetquiz" exact />
       <AdminRoute component={AddNewQuestions} path="/quizaddnewquests" exact />
       <AdminRoute component={SetQuestions} path="/quizsetnewquests" exact />
-      <AdminRoute component={SetQuestions} path="/quizsetnewquests" exact />
       <AdminRoute component={AdminFeedback} path="/quizfeedback" exact />
       <AdminRoute component={QuizRankings} path="/quizadminrankings" exact />
       <AdminRoute component={ListQuiz} path="/quizlist" exact />
+      <AdminRoute component={QuizStats} path="/quizstats" exact />
+      <AdminRoute component={QuizCharts} path="/quizcharts/:id" exact />
       {/* <AdminRoute component={SendMail} path="/sendmail" exact /> */}
       <PrivateRoute component={Dashboard} path="/dashboard" exact />
       <PrivateRoute component={Upload} path="/upload" exact />

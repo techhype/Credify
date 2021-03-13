@@ -4,7 +4,7 @@ import {Pie} from 'react-chartjs-2'
 const PieChart = (props) => {
   return (
     <>
-    {/* <h2>Analysis</h2> */}
+    <h3>Analysis</h3>
     <Pie
       data={{
         labels: ['GCP','AWS','Azure'],

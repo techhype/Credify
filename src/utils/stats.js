@@ -172,3 +172,23 @@ export const getAllUsers = (setAllUsers) => {
     console.log(error);
   })
 }
+
+export const getQuizRank = (id,setRank) => {
+  const url = "https://credify.tk/rankings";
+    var options = {
+      headers: { 
+          'Authorization': `TOKEN ${localStorage.getItem('token')}` 
+      }
+    }
+    axios.get(url,options)
+    .then(response=>{
+      response.data.forEach((rank,index)=>{
+        console.log('ranks:',rank.id,id);
+        if(rank.id==id){
+          setRank(index+1)
+        }
+      })
+    }).catch(error=>{
+      console.log(error);
+    })
+}

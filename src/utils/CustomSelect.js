@@ -134,9 +134,9 @@ const CustomSelect = (props) => {
         <div className="cselect">  
           <label htmlFor="Cloud Service Provider">Cloud Service Provider</label>
           <select 
-            onChange={isAdmin() ? (e)=>{handleCSPSelect(e);props.handleCspSelect(e.target.value)} : handleCSPSelect} 
+            onChange={isAdmin() ? (e)=>{handleCSPSelect(e);props.handleCspSelect(e.target.value||null)} : handleCSPSelect} 
             name="Cloud Service Provider" required> 
-            <option className='disabled' defaultValue value>  select an option  </option>
+            <option className='disabled' defaultValue value=''>  select an option  </option>
             <option>GCP</option> 
             <option>AWS</option> 
             <option>Azure</option> 
@@ -145,9 +145,9 @@ const CustomSelect = (props) => {
         <div className="cselect"> 
           <label htmlFor="Cloud Certification Level">Cloud Certification Level</label>
           <select
-           onChange={isAdmin() ? (e)=>{handleLevelSelect(e);props.handleCertLevelSelect(e.target.value)} : handleLevelSelect} 
+           onChange={isAdmin() ? (e)=>{handleLevelSelect(e);props.handleCertLevelSelect(e.target.value||null)} : handleLevelSelect} 
            required> 
-          <option className='disabled' defaultValue value>  select an option  </option>
+          <option className='disabled' defaultValue value=''>  select an option  </option>
             { 
               certlevels 
             } 
@@ -156,9 +156,9 @@ const CustomSelect = (props) => {
         <div className="cselect"> 
           <label htmlFor="Cloud Certification Name">Cloud Certification Name</label>
           <select 
-          onChange={isAdmin() ? (e)=>{props.handleCertNameSelect(e.target.value)} : handleCertDetails} 
+          onChange={isAdmin() ? (e)=>{props.handleCertNameSelect(e.target.value||null)} : handleCertDetails} 
           required> 
-          <option className='disabled' defaultValue value>  select an option  </option>
+          <option className='disabled' defaultValue value=''>  select an option  </option>
             { 
               certnames 
             } 
