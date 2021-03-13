@@ -128,9 +128,9 @@ const CustomSelect = (props) => {
   if (level) { 
     certnames = level.map((el) => <option key={el}>{el}</option>); 
   } 
-
+  const selectStyle = isAdmin() ? props.selectstyle :null;
   return (
-    <div style={isAdmin() ? props.selectstyle : '' }>
+    <div style={selectStyle}>
         <div className="cselect">  
           <label htmlFor="Cloud Service Provider">Cloud Service Provider</label>
           <select 
