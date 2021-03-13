@@ -211,10 +211,17 @@ export default function Quiz(props) {
                     <button style={{marginLeft:'65px',marginTop:'40px',fontSize:'1.2em'}} className='submit'>Go to Dashboard</button>
                 </Link>
                 <div className="score-section report-container" id='report'>
-                   <span style={{fontSize:'30px',fontWeight:'bolder'}}>You scored {score} out of {questions.length * marksPerQuestion} </span> <br/>
+                   {/* <span style={{fontSize:'30px',fontWeight:'bolder'}}>You scored {score} out of {questions.length * marksPerQuestion} </span> <br/>
                    <span style={{fontSize:'25px',fontWeight:'bold',color:'green'}}> Correct Answers : {correct} </span><br/> 
-                   <span style={{fontSize:'25px',fontWeight:'bolder',color:'red'}}> Wrong Answers: {wrong} </span>
-                    <GetQuizReport questions={questions} wrongSelected={wrongSelected} />
+                   <span style={{fontSize:'25px',fontWeight:'bolder',color:'red'}}> Wrong Answers: {wrong} </span> */}
+                    <GetQuizReport 
+                    score={score} 
+                    total_marks={questions.length * marksPerQuestion}
+                    total_questions={questions.length}
+                    correct={correct} 
+                    wrong={wrong} 
+                    questions={questions}  
+                    wrongSelected={wrongSelected} />
                 </div>
             </>
             ) : questions.length <= 0 ? (
