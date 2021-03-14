@@ -5,7 +5,7 @@ const QuizHistory = () => {
   const [quizHistory,setQuizHistory] = useState([]);
   useEffect(()=>{
     getquizHistory();
-  },[quizHistory])
+  },[])
   const getquizHistory = () => {
     const url = "https://credify.tk/quizresults";
     var options = {

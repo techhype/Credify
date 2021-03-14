@@ -159,7 +159,7 @@ export default function Quiz(props) {
                 const pageHeight = 290;
                 const imgHeight = (canvas.height * imgWidth) / canvas.width;
                 let heightLeft = imgHeight;
-                const doc = new JsPDF('pt', 'mm');
+                const doc = new JsPDF('pt', 'mm','a4',true);
                 let position = 0;
                 doc.addImage(imgData, 'PNG', 10, 0, imgWidth, imgHeight + 25);
                 heightLeft -= pageHeight;
