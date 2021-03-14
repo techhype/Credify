@@ -4,6 +4,8 @@ import axios from 'axios'
 import RadarChart from './RadarChart';
 import HorizontalBarChart from './HorizontalBarChart';
 import {getQuizRank} from '../../utils/stats'
+import JsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 import './QuizCharts.css'
 const QuizCharts = () => {
   const [quizStats,setQuizStats] = useState(''); 
@@ -31,12 +33,58 @@ const QuizCharts = () => {
       .catch(function (err) {
         console.log("error message", err.message);
       });
-  },[])
+    },[])
+    
+    const sendStats = () => {
+      window.scrollTo(0, 0);
+      setTimeout(() => {
+        const divToPrint = document.querySelector('#quizstats');
+        html2canvas(divToPrint).then(canvas => {
+            const imgData = canvas.toDataURL('image/png');
+            const imgWidth = 190;
+            const pageHeight = 290;
+            const imgHeight = (canvas.height * imgWidth) / canvas.width;
+            let heightLeft = imgHeight;
+            const doc = new JsPDF('pt', 'mm');
+            let position = 0;
+            doc.addImage(imgData, 'PNG', 10, 0, imgWidth, imgHeight + 25);
+            heightLeft -= pageHeight;
+            while (heightLeft >= 0) {
+                position = heightLeft - imgHeight;
+                doc.addPage();
+                doc.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight + 25);
+                heightLeft -= pageHeight;
+            }
+            // doc.save('download.pdf');
+            var pdf = doc.output('blob');
+            console.log(pdf);
+            const formData = new FormData();
+            formData.append("stats",pdf);
+            formData.append("userid",id);
+            const url = "https://credify.tk/adminquizstatspdf";
+            var options = {
+              headers: { 
+                  'Authorization': `TOKEN ${localStorage.getItem('token')}` 
+              }
+            }
+            axios
+              .post(url,formData,options)
+              .then(function (response) {
+                console.log(response);
+                alert("User Quiz Stats sent to their mail")
+              })
+              .catch(function (err) {
+                console.log("error message", err.message);
+              });
+        })
+      },1000);  
+  }
   return (
     <div>
       {quizStats ?(
         <>
-          <div className='container quiz-stats-container'>
+          <button className='submit send-stats' onClick={sendStats}>Send Stats</button>
+          <div className='container quiz-stats-container' id='quizstats'>
             <div className='left'>
               <div className='card'>
                 <RadarChart stats={quizStats}/>

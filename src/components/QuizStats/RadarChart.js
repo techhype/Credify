@@ -59,7 +59,7 @@ const RadarChart = (props) => {
     <div className='radio-btn' onChange={(e)=>setCSP(e.target.value)}>
       <input type="radio" name="cspSelect" id="gcp" value='gcp' checked={csp==='gcp'?'checked':''}/>
       <label htmlFor="gcp">GCP</label>
-      <input type="radio" name="cspSelect" id="aws" value='aws' checked={csp==='aws'?'checked':''}/>
+      <input type="radio" name="cspSelect" id="aws-radar" value='aws' checked={csp==='aws'?'checked':''}/>
       <label htmlFor="aws">AWS</label>
     </div>
     <Radar

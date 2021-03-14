@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom';
 
-// import './NewQuiz.css'
+import './SetQuestions.css'
 
 const SetQuestions = (props) => {
   /* Quiz question set parameters */
@@ -84,42 +84,46 @@ const SetQuestions = (props) => {
           {/* Set Questions {questionNumber}/{totalques} */}
         </div>
         <div className="qa-block">
-        Q.No.{questionNumber}<br></br><br></br>
-          <input type="text" required className="question-text"
-          
-          onChange={(e)=>setText(e.target.value)}
-          placeholder="Enter question"
-          value={text}
-          />
-          <label className="option-type">answer type:</label>
-          <select 
-          className="qtype"
-          onChange={(e)=>setQuestionType(e.target.value)}
-          value={question_type}
-          >   
-             <option className='disabled' defaultValue value>  select an option  </option>
-            <option value="single">Single option</option>
-            <option value="multiple">multiple option</option>
-          </select>
+          <div className="ans-checks">
+            <label className="qno">Q.No.{questionNumber} </label>
+            <input type="text" required className="question-text"
+            className="enterq"
+            onChange={(e)=>setText(e.target.value)}
+            placeholder="Enter question"
+            value={text}
+            />
+          </div> 
+          <div className="ans-checks">
+            <label className="option-type">answer type:</label>
+            <select 
+            className="qtype"
+            onChange={(e)=>setQuestionType(e.target.value)}
+            value={question_type}
+            >   
+              <option className='disabled' defaultValue value>  select an option  </option>
+              <option value="single">Single option</option>
+              <option value="multiple">multiple option</option>
+            </select>
+          </div> 
           <div className="multiple-ans-container">
             <div className="ans-checks">
                 <input type={question_type==='single'? "radio" : "checkbox"} 
-                name='selectcorrect' className="iscorrect-A" 
+                name='selectcorrect' className="ic iscorrect-A" 
                 checked={answerA.is_correct}
                 onChange={(e)=>{setAnswerA({...answerA,is_correct:!answerA.is_correct})}}
                 />
-                <input type="text" required className="multiple-answer-A" 
+                <input type="text" required className="ma multiple-answer-A" 
                 placeholder="option A"
                 onChange={(e)=>setAnswerA({...answerA,text:e.target.value})}
                 value={answerA.text} />
             </div>
             <div className="ans-checks">
                 <input type={question_type==='single'? "radio" : "checkbox"} 
-                name='selectcorrect' className="iscorrect-B" 
+                name='selectcorrect' className="ic iscorrect-B" 
                 checked={answerB.is_correct}
                 onChange={(e)=>{setAnswerB({...answerB,is_correct:!answerB.is_correct})}}
                 />
-                <input type="text" required className="multiple-answer-B"
+                <input type="text" required className="ma multiple-answer-B"
                     placeholder="option B"
                     onChange={(e)=>setAnswerB({...answerB,text:e.target.value})}
                     value={answerB.text}
@@ -127,28 +131,27 @@ const SetQuestions = (props) => {
             </div>
             <div className="ans-checks">
               <input type={question_type==='single'? "radio" : "checkbox"} 
-              name='selectcorrect' className="iscorrect-C" 
+              name='selectcorrect' className="ic iscorrect-C" 
               checked={answerC.is_correct}
                 onChange={(e)=>{setAnswerC({...answerC,is_correct:!answerC.is_correct})}}
               />
-              <input type="text" required className="multiple-answer-C"
+              <input type="text" required className="ma multiple-answer-C"
                   placeholder="option C"
                   onChange={(e)=>setAnswerC({...answerC,text:e.target.value})}
                   value={answerC.text} />
             </div>
             <div className="ans-checks">
               <input type={question_type==='single'? "radio" : "checkbox"} 
-              name='selectcorrect' className="iscorrect-D" 
+              name='selectcorrect' className="ic iscorrect-D" 
               checked={answerD.is_correct}
               onChange={(e)=>{setAnswerD({...answerD,is_correct:!answerD.is_correct})}} />
-              <input type="text" required className="multiple-answer-D"
+              <input type="text" required className="ma multiple-answer-D"
                   placeholder="option D"
                   onChange={(e)=>setAnswerD({...answerD,text:e.target.value})}
                   value={answerD.text} />
-                
             </div>
           </div>
-          <input type="text" required className="explanation-text"
+          <input type="text" required className=" ma explanation-text"
               
               onChange={(e)=>setExplanation(e.target.value)}
               placeholder="Enter answer explanation"

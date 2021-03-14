@@ -1,4 +1,4 @@
-/* input{
+.form-inputs{
 	width:480px;
 	height:38px;
 	margin:4px auto 20px auto;
@@ -8,7 +8,7 @@
 	border-radius:5px;
   }
 
-textarea{
+.Description{
 	width:480px;
 	height:80px;
 	margin:4px auto 20px auto;
@@ -42,4 +42,4 @@ textarea{
   }
   .form-submit-button:focus, .next-question-set:focus, .finishquestionset:focus{
 	 outline: none;
-  } */
+  }

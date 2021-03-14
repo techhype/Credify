@@ -16,7 +16,7 @@
 .inputCsp > input[type=radio]{
   position: relative;
   top:17px;
-  left:4px;
+  left:30px;
 }
 .dash-card{
   display: block;

@@ -1,6 +1,8 @@
 .quiz-stats-container{
  display: flex;
  flex-direction: row;
+ align-items: flex-start;
+ height:85vh;
 }
 .right > .card{
   width:350px;
@@ -30,7 +32,7 @@
   margin-right: 20px;
   /* margin-left: 60px; */
 }
-#aws{
+#aws-radar{
   margin-left: 60px;
 }
 .radio-btn > label{
@@ -38,3 +40,13 @@
   top:4px;
 }
 
+
+.send-stats{
+  display: flex !important; 
+  align-items: center;
+   /* justify-content: center; */
+  margin:8px auto !important;
+  /* position:relative;
+  top:40px;
+  left:30px; */
+}

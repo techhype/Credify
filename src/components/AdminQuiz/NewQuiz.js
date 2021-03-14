@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 
-// import './NewQuiz.css'
+import './NewQuiz.css'
 
 const NewQuiz = () => {
   const history = useHistory();
@@ -79,7 +79,7 @@ const NewQuiz = () => {
             </select>
         </div>
         <div className="quiz-form-field">
-            <label className="form-label Description">Description</label><br></br>
+            <label className="form-label">Description</label><br></br>
             <textarea className="form-inputs Description" 
                 onChange={(e)=>setQuizDetails({...quizDetails,description:e.target.value})}
                 required

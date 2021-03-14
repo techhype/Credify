@@ -34,7 +34,7 @@ const QuizNavbar = () => {
       });  
   }
   return (
-    <div className='nav-container'>
+    <div style={{marginBottom:'70px'}} className='nav-container'>
       <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand href="/quizsetquiz">Credify-Quiz</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />

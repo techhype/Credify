@@ -9,6 +9,8 @@ const UserFeedback = (props) => {
     const [rating,setrating] = useState('');
     const[message,setmessage] = useState('');
     const[fbalert,setfbalert] =useState(false);
+
+    const history = useHistory();
     
     const sendfeedback = () => {
 
@@ -120,7 +122,7 @@ const UserFeedback = (props) => {
 
             >Submit Feedback</button>
             <button className="feedback-button"
-            onClick= {()=> goToReport()}
+            onClick= {()=> history.push('/dashboard')}
             style ={{
                 marginLeft:'50px',
                 backgroundColor:"#ffde7a",
@@ -133,7 +135,7 @@ const UserFeedback = (props) => {
                 marginBottom:"4px"
             }}
 
-            >Skip</button>
+            >Go To Dashboard</button>
             {fbalert && <div>feedback sent</div>
             }
         </div>

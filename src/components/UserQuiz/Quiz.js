@@ -7,7 +7,6 @@ import GetQuizReport from './GetQuizReport'
 import JsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import {useHistory} from 'react-router-dom'
-import UserFeedback from '../UserFeedback/UserFeedback'
 import {Link} from 'react-router-dom'
 
 
@@ -25,7 +24,8 @@ export default function Quiz(props) {
     const [wrong,setWrong]=useState(0);
     const [wrongSelected,setWrongSelected] = useState([]);
     const [prevClicked,setprevClicked] = useState('');
-    const [showFeedback, setShowFeedback] = useState(false);
+    const [pdfId,setPdfId] = useState('')
+    // const [showFeedback, setShowFeedback] = useState(false);
     
     const history = useHistory();
     
@@ -51,23 +51,6 @@ export default function Quiz(props) {
 
     )
 
-    // const handleAnswerOptionClick = (isCorrect) => {
-    //     if (isCorrect) {
-    //         setScore(score + marksPerQuestion);
-    //     }
-
-    //     const nextQuestion = cq + 1;
-    //     const prevQuestion = cq - 1;
-    //     if(prevQuestion < 0){
-    //         setcq(0);
-    //     }
-    //     if (nextQuestion < questions.length) {
-    //         setcq(nextQuestion);
-    //     }
-    //     else {
-    //     setShowScore(true);
-    //     }
-    // };
     const handleAdd = (arr) => {
         const newarr = [...wrongSelected];
         newarr.push(arr);
@@ -114,9 +97,32 @@ export default function Quiz(props) {
             setcq(nextQuestion);
         }
         else {
-        // setShowScore(true);
-        setShowFeedback(true);
+        finishQuiz();
+        setShowScore(true);
+        // setShowFeedback(true);
         }
+    } 
+
+    const finishQuiz = () => {
+        const url = "https://credify.tk/quizresults"; 
+            var options = {
+            headers: { 
+                'Authorization': `TOKEN ${localStorage.getItem('token')}` 
+            }
+            };
+            const reqbody = {
+                quiz: id,
+                rightans_no:correct,
+                wrongans_no:wrong,
+                score 
+            }
+            axios.post(url,reqbody,options)
+            .then(response=>{
+                console.log(response);
+                setPdfId(response.data.id);
+            }).catch(error=>{
+                console.log(error);
+            })
     }
 
     const handleOptionClick = (i,qtype) => {
@@ -168,17 +174,13 @@ export default function Quiz(props) {
                 console.log(pdf);
                 const formData = new FormData();
                 formData.append("report", pdf);
-                formData.append("score", score);
-                formData.append("rightans_no", correct);
-                formData.append("wrongans_no", wrong);
-                formData.append("quiz", id);
-                 const url = "https://credify.tk/quizresults"; 
+                formData.append("quiztakerid", pdfId);
+                const url = "https://credify.tk/quizresultspdf"; 
                 var options = {
                 headers: { 
                     'Authorization': `TOKEN ${localStorage.getItem('token')}` 
                 }
                 };
-
                 axios.post(url,formData,options)
                 .then(response=>{
                     console.log(response);
@@ -202,13 +204,14 @@ export default function Quiz(props) {
             </p>
             <button onClick={() => setStartQuiz(false)} className='submit'>Begin Test</button>
           </div>
-        ) : showFeedback ? (
-            <UserFeedback setShowScore={setShowScore} quizid={id} setShowFeedback={setShowFeedback}/>
         ) : showScore ? (
             <>
                 <button style={{marginLeft:'65px',marginTop:'40px',fontSize:'1.2em'}} onClick={exportPDF} className='submit'>Send Report</button>
                 <Link style={{textDecoration:'none'}} to='/dashboard'>
                     <button style={{marginLeft:'65px',marginTop:'40px',fontSize:'1.2em'}} className='submit'>Go to Dashboard</button>
+                </Link>
+                <Link style={{textDecoration:'none'}} to='/userquizfeedback'>
+                    <button style={{marginLeft:'65px',marginTop:'40px',fontSize:'1.2em'}} className='submit'>Quiz Feedback</button>
                 </Link>
                 <div className="score-section report-container" id='report'>
                    {/* <span style={{fontSize:'30px',fontWeight:'bolder'}}>You scored {score} out of {questions.length * marksPerQuestion} </span> <br/>
