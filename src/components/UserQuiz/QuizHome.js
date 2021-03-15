@@ -10,7 +10,7 @@ const QuizHome = (props) => {
   let [category,setCategory] = useState(null);
   let [subcategory,setSubcategory] = useState(null);
   const [tests, setTests] = useState([]);
-  const GCPcategory = ['General','IAM','Compute Engine', 'App Engine','Cloud Storage', 'Cloud Monitoring','Cloud Functions']
+  const GCPcategory = ['GCP Fundamentals','Google Cloud Associate','IAM','Compute Engine', 'App Engine','Cloud Storage', 'Cloud Monitoring','Cloud Functions']
   const AWScategory = ['General','EC2', 'Elastic Beanstack', 'Lambda Functions'] 
   let  scategory;
   

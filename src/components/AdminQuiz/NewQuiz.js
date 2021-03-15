@@ -19,7 +19,7 @@ const NewQuiz = () => {
     )
 
   /*GCP and AWS category */
-  const GCPcategory = ['General','IAM','Compute Engine', 'App Engine','Cloud Storage', 'Cloud Monitoring','Cloud Functions']
+  const GCPcategory = ['GCP Fundamentals','Google Cloud Associate','IAM','Compute Engine', 'App Engine','Cloud Storage', 'Cloud Monitoring','Cloud Functions']
   const AWScategory = ['General','EC2', 'Elastic Beanstack', 'Lambda Functions']
 
   const handleQuizSubmit = (e) => {

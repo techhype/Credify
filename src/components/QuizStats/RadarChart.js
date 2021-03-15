@@ -3,9 +3,9 @@ import {Radar} from 'react-chartjs-2'
 
 const RadarChart = (props) => {
   const [csp,setCSP] = useState('gcp');
-  const GCPcategory = ['General','IAM','Compute Engine', 'App Engine','Cloud Storage', 'Cloud Monitoring','Cloud Functions']
+  const GCPcategory = ['GCP Fundamentals','Google Cloud Associate','IAM','Compute Engine', 'App Engine','Cloud Storage', 'Cloud Monitoring','Cloud Functions']
   const AWScategory = ['General','EC2', 'Elastic Beanstack', 'Lambda Functions']
-  let gcpCategoryData = [0,0,0,0,0,0,0]
+  let gcpCategoryData = [0,0,0,0,0,0,0,0]
   let awsCategoryData = [0,0,0,0,0,0,0]
   console.log(props.stats);
   const gcpStats =  {};
