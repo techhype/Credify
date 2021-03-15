@@ -55,13 +55,13 @@ const QuizHome = (props) => {
       {tests.length == 0 ? (
         <>
         <form className="filter-form" onSubmit={handleFilter}>
-          <select name="category" onChange={(e)=>setCategory(e.target.value)}>
-          <option className='disabled' defaultValue value>Select CSP</option>
+          <select name="category" onChange={(e)=>setCategory(e.target.value||null)}>
+          <option className='disabled' defaultValue value=''>Select CSP</option>
             <option value="GCP">GCP</option>
             <option value="AWS">AWS</option>
           </select>
-          <select name="subcategory" onChange={(e)=>setSubcategory(e.target.value)}>
-          <option className='disabled' defaultValue value>Select a topic</option>
+          <select name="subcategory" onChange={(e)=>setSubcategory(e.target.value||null)}>
+          <option className='disabled' defaultValue value=''>Select a topic</option>
           {scategory}
           </select>
           <input type="submit" className="submit filter-btn" value="Filter"/>
