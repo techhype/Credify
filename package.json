@@ -29,7 +29,6 @@
     "eject": "react-scripts eject",
     "deploy": "deploy.bat"
   },
-  "homepage": ".",
   "eslintConfig": {
     "extends": [
       "react-app",

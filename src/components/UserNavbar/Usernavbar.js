@@ -44,7 +44,7 @@ const UserNavbar = () => {
         <Nav className="mr-auto">
           <Nav.Link href="/upload">Upload Creds</Nav.Link>
           <Nav.Link href="/profile">My Creds</Nav.Link>
-          <Nav.Link href="/quizhome">New Quiz</Nav.Link>
+          <Nav.Link href="/quizhome">Take Quiz</Nav.Link>
           <Nav.Link href="/quizrankings">Quiz Rankings</Nav.Link>
           <Nav.Link href="/quizhistory">Quiz History</Nav.Link>
         </Nav>

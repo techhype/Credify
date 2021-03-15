@@ -3,6 +3,7 @@ import axios from 'axios'
 import {FaEye} from 'react-icons/fa'
 
 import './QuizHistory.css'
+import HistoryDoughnut from './HistoryDoughnut'
 
 const QuizHistory = () => {
   const [quizHistory,setQuizHistory] = useState([]);
@@ -29,6 +30,7 @@ const QuizHistory = () => {
       <div className='row-container'>
         {quizHistory.map(history=> (
           <div className='card history-card'>
+          <HistoryDoughnut correct={history.rightans_no} wrong={history.wrongans_no} />
             <h2>{Math.floor((history.score/(history.quiz.marks*history.quiz.total_questions))*100)}%</h2>
             <h6>Name:&ensp;{history.quiz.name}</h6>
             <h6>Category:&ensp;{history.quiz.category}</h6>
