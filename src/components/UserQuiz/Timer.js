@@ -21,20 +21,29 @@ const Timer = ({ seconds,finishQuiz,setShowScore,totalQuestions,correct,wrong}) 
 
   function secondsToMs(d) {
     d = Number(d);
+    var h = Math.floor(d / 3600);
     var m = Math.floor((d % 3600) / 60);
     var s = Math.floor((d % 3600) % 60);
     let minutes;
     let seconds;
+    let hours;
+    var hDisplay = h > 0 ? h : "00";
     var mDisplay = m > 0 ? m : "00";
     var sDisplay = s > 0 ? s : "00";
+    hDisplay.toString().length == 1 ? hours=`0${hDisplay}` : hours=hDisplay;
     mDisplay.toString().length == 1 ? minutes=`0${mDisplay}` : minutes=mDisplay;
     sDisplay.toString().length == 1 ? seconds=`0${sDisplay}` : seconds=sDisplay;
-    if(mDisplay==="00" && sDisplay==="00"){
+    if(hDisplay==="00" && mDisplay==="00" && sDisplay==="00"){
       alert("Your Time has ended");
       finishQuiz();
       setShowScore(true);
     }
-    return `${minutes} : ${seconds}`;
+    if(hours){
+      return `${hours} : ${minutes} : ${seconds}`;
+    }
+    else{
+      return `${minutes} : ${seconds}`;
+    }
   }
   return (
     <div>
