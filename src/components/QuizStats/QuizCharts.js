@@ -84,7 +84,7 @@ const QuizCharts = () => {
       {quizStats ?(
         <>
           <button className='submit send-stats' onClick={sendStats}>Send Stats</button>
-          <div className='container quiz-stats-container' id='quizstats'>
+          <div className='quiz-stats-container' id='quizstats'>
             <div className='left'>
               <div className='card'>
                 <RadarChart stats={quizStats}/>

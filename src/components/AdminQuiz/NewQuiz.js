@@ -44,7 +44,7 @@ const NewQuiz = () => {
 
   return (
     <div>
-      <form action="" className="set-quiz-form container">
+      <form action="" className="set-quiz-form newquiz-container">
         <h1 className="h1addquiz">Add a quiz</h1><br></br>
         <div className="quiz-form-field">
           <label className="form-label Name">Name</label>
