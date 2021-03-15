@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 const UserFeedback = (props) => {
 
     // const[quiz,setQuiz] = useState('');
-    const quiz = props.quizid;
+    const quiz = props.location.state.quizid;
     const [rating,setrating] = useState('');
     const[message,setmessage] = useState('');
     const[fbalert,setfbalert] =useState(false);

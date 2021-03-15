@@ -210,7 +210,8 @@ export default function Quiz(props) {
                 <Link style={{textDecoration:'none'}} to='/dashboard'>
                     <button style={{marginLeft:'65px',marginTop:'40px',fontSize:'1.2em'}} className='submit'>Go to Dashboard</button>
                 </Link>
-                <Link style={{textDecoration:'none'}} to='/userquizfeedback'>
+                <Link style={{textDecoration:'none'}} to={{
+                    pathname: '/userquizfeedback',state: {quizid: id}}}>
                     <button style={{marginLeft:'65px',marginTop:'40px',fontSize:'1.2em'}} className='submit'>Quiz Feedback</button>
                 </Link>
                 <div className="score-section report-container" id='report'>
@@ -246,44 +247,52 @@ export default function Quiz(props) {
               <div className="question-count">
                 <span>Question {cq + 1}</span>/{questions.length}
               </div>
-              <div className="question-text" style={{fontSize:'1.4em',fontWeight:'bold',marginLeft:'60px'}}>
+              <div className="question-text" style={{fontSize:'1.2em',fontWeight:'bold',margin:'20px 80px'}}>
                 {questions[cq].text}
               </div>
               <div className="answer-section">
-                <div className='answer-options'>
+                <div className='answer-options' style={{margin:'20px 80px'}}>
                     <input type={questions[cq].question_type==='single'?"radio":"checkbox"} 
                     name="answer-options" checked={userClickedOptions[0] ? 'checked' : ''}
                      onChange={()=>{handleOptionClick(0,questions[cq].question_type)}}
+                     
                     />
-                    <p style={{fontSize:'1.4em',cursor:'pointer'}}
+                    <p style={{fontSize:'1.2em',cursor:'pointer'}}
                         onClick={()=>{handleOptionClick(0,questions[cq].question_type)}}
+                        
                     >{questions[cq].choices[0].text}</p>
                 </div>
-                <div className='answer-options'>
+                <div className='answer-options' style={{margin:'10px 80px'}}>
                     <input type={questions[cq].question_type==='single'?"radio":"checkbox"}
                      name="answer-options" checked={userClickedOptions[1] ? 'checked' : ''}
-                     onChange={()=>{handleOptionClick(1,questions[cq].question_type)}}   
+                     onChange={()=>{handleOptionClick(1,questions[cq].question_type)}}
+                        
                      />
-                    <p style={{fontSize:'1.4em',cursor:'pointer'}}
+                    <p style={{fontSize:'1.2em',cursor:'pointer'}}
                         onClick={()=>{handleOptionClick(1,questions[cq].question_type)}}
+                        
                     >{questions[cq].choices[1].text}</p>
                 </div>
-                <div className='answer-options'>
+                <div className='answer-options' style={{margin:'20px 80px'}}>
                     <input type={questions[cq].question_type==='single'?"radio":"checkbox"} 
                         name="answer-options" checked={userClickedOptions[2] ? 'checked' : ''}
                      onChange={()=>{handleOptionClick(2,questions[cq].question_type)}}
+                     
                     />
-                    <p style={{fontSize:'1.4em',cursor:'pointer'}}
+                    <p style={{fontSize:'1.2em',cursor:'pointer'}}
                         onClick={()=>{handleOptionClick(2,questions[cq].question_type)}}
+                        
                     >{questions[cq].choices[2].text}</p>
                 </div>
-                <div className='answer-options'>
+                <div className='answer-options' style={{margin:'20px 80px'}}>
                     <input type={questions[cq].question_type==='single'?"radio":"checkbox"} 
                         name="answer-options" checked={userClickedOptions[3] ? 'checked' : ''}
                      onChange={()=>{handleOptionClick(3,questions[cq].question_type)}}
+                     
                     />
-                    <p style={{fontSize:'1.4em',cursor:'pointer'}}
+                    <p style={{fontSize:'1.2em',cursor:'pointer'}}
                         onClick={()=>{handleOptionClick(3,questions[cq].question_type)}}
+                        
                     >{questions[cq].choices[3].text}</p>
                 </div>
               </div>

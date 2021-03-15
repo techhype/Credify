@@ -73,7 +73,7 @@ const Upload = () => {
   }
   
   return (
-    <div className="container">
+    <div className="upload-container">
       <h2 id='header' style={{marginBottom:'30px'}}>Upload Certificates</h2>
       <form id='uploadform' onSubmit={handleSubmit}>
         <CustomSelect setCert={handleCustomSelect}/>
