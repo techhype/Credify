@@ -196,7 +196,7 @@ export default function Quiz(props) {
     return (
       <div className="app">
         {startQuiz ? (
-          <div className="instruction-section container">
+          <div className="instruction-section quiz-container">
             <h2  style={{fontSize:'2em'}}>Quiz Instructions</h2>
             <p style={{fontSize:'1.2em',textAlign:'center'}} className="instructions">
               1. Answer all the questions <br/> 2. Make sure to submit your
@@ -236,7 +236,7 @@ export default function Quiz(props) {
             
         ) : (
           <>
-            <div className="question-section container">
+            <div className="question-section quiz-container">
               <Timer seconds={timelimit * 60} 
               finishQuiz={finishQuiz} 
               setShowScore={setShowScore}
@@ -246,7 +246,7 @@ export default function Quiz(props) {
               <div className="question-count">
                 <span>Question {cq + 1}</span>/{questions.length}
               </div>
-              <div className="question-text" style={{fontSize:'1.8em'}}>
+              <div className="question-text" style={{fontSize:'1.4em',fontWeight:'bold',marginLeft:'60px'}}>
                 {questions[cq].text}
               </div>
               <div className="answer-section">

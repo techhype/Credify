@@ -34,7 +34,7 @@ const Register = () => {
   }
   
   return (
-    <div className="container">
+    <div className="auth-container">
     <h1 style={{marginBottom:'60px',fontSize:'35px'}}>credify</h1>
       <div className="card card-3">
         <h2 style={{marginBottom:'30px'}}>Create your credify account</h2>

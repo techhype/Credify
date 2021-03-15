@@ -7,9 +7,10 @@
 
 .history-card{
   width:350px;
-  height:500px;
-  background-color: #343A40;
-  color:white;
+  height:530px;
+  /* background-color: #343A40; */
+  /* color:white; */
+  
   border: radius 8px;
 }
 

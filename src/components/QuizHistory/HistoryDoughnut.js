@@ -4,6 +4,7 @@ import {Doughnut} from 'react-chartjs-2';
 const HistoryDoughnut = ({correct,wrong}) => {
   return (
     <>
+    <br/>
     <Doughnut
       data={{
         labels: ['Correct','Wrong'],
@@ -31,7 +32,7 @@ const HistoryDoughnut = ({correct,wrong}) => {
         legend:{
           position:'bottom',
           labels:{
-            fontSize:18
+            fontSize:14
           }
         },
         scales:{
