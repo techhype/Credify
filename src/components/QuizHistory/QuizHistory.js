@@ -1,5 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
+import {FaEye} from 'react-icons/fa'
+
+import './QuizHistory.css'
 
 const QuizHistory = () => {
   const [quizHistory,setQuizHistory] = useState([]);
@@ -21,19 +24,26 @@ const QuizHistory = () => {
     })
   }
   return (
-    <div className='container'>
-      <h1>Quiz History</h1>
-      {quizHistory.map(history=> (
-        <div className='card card-3'>
-          <h6>Quiz Name:{history.quiz.name}</h6>
-          <h6>Quiz Category: {history.quiz.category}</h6>
-          <h6>Quiz Sub-Category: {history.quiz.subcategory}</h6>
-          <h6>Right Answers: {history.rightans_no}</h6>
-          <h6>Wrong Answers: {history.wrongans_no}</h6>
-          <h6>Score: {history.score} / {history.quiz.marks*history.quiz.total_questions}</h6>
-          <a href={history.report_url} target="_blank">Quiz Report</a>
-        </div>
-      ))}
+    <div>
+      <h1 style={{marginTop:'30px',marginLeft:'40px'}}>Quiz History</h1>
+      <div className='row-container'>
+        {quizHistory.map(history=> (
+          <div className='card history-card'>
+            <h2>{Math.floor((history.score/(history.quiz.marks*history.quiz.total_questions))*100)}%</h2>
+            <h6>Name:&ensp;{history.quiz.name}</h6>
+            <h6>Category:&ensp;{history.quiz.category}</h6>
+            <h6>Sub-Category:&ensp;{history.quiz.subcategory}</h6>
+            <h6>Marks: &ensp; {history.score} / {history.quiz.marks*history.quiz.total_questions}</h6>
+            <h6 style={{color:'#61B329'}}>Correct:&ensp;{history.rightans_no}</h6>
+            <h6 style={{color:'#FF6347'}}>Wrong:&ensp;{history.wrongans_no}</h6>
+            {history.report_url &&
+            <div className='view-report'>
+              <a href={history.report_url}  target="_blank">Quiz Report </a>
+              <FaEye/>
+            </div> }
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

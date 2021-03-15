@@ -15,7 +15,7 @@ const GetQuizReport = (props) => {
           <DoughnutChart correct={props.correct} wrong={props.wrong} />
         </div>
         <div className='result-content'>
-          <h1>You Scored {(props.score/props.total_marks)*100}% ({props.score}/{props.total_marks})</h1>
+          <h1>You Scored {Math.floor((props.score/props.total_marks)*100)}% ({props.score}/{props.total_marks})</h1>
           <h2 style={{color:'rgb(34,139,34, 1)'}}>Correct Answers: {props.correct} </h2>
           <h2 style={{color:'rgba(255, 99, 132, 1)'}}>Wrong Answers: {props.wrong}</h2>
         </div>

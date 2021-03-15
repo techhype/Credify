@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-const Timer = ({ seconds }) => {
+const Timer = ({ seconds,finishQuiz,setShowScore,totalQuestions,correct,wrong}) => {
   // initialize timeLeft with the seconds prop
   const [timeLeft, setTimeLeft] = useState(seconds);
 
@@ -29,6 +29,11 @@ const Timer = ({ seconds }) => {
     var sDisplay = s > 0 ? s : "00";
     mDisplay.toString().length == 1 ? minutes=`0${mDisplay}` : minutes=mDisplay;
     sDisplay.toString().length == 1 ? seconds=`0${sDisplay}` : seconds=sDisplay;
+    if(mDisplay==="00" && sDisplay==="00"){
+      alert("Your Time has ended");
+      finishQuiz();
+      setShowScore(true);
+    }
     return `${minutes} : ${seconds}`;
   }
   return (

@@ -237,11 +237,16 @@ export default function Quiz(props) {
         ) : (
           <>
             <div className="question-section container">
-              <Timer seconds={timelimit * 60} />
+              <Timer seconds={timelimit * 60} 
+              finishQuiz={finishQuiz} 
+              setShowScore={setShowScore}
+              totalQuestions={questions.length}
+              correct={correct}
+              wrong={wrong} />
               <div className="question-count">
                 <span>Question {cq + 1}</span>/{questions.length}
               </div>
-              <div className="question-text">
+              <div className="question-text" style={{fontSize:'1.8em'}}>
                 {questions[cq].text}
               </div>
               <div className="answer-section">
@@ -250,28 +255,36 @@ export default function Quiz(props) {
                     name="answer-options" checked={userClickedOptions[0] ? 'checked' : ''}
                      onChange={()=>{handleOptionClick(0,questions[cq].question_type)}}
                     />
-                    <p>{questions[cq].choices[0].text}</p>
+                    <p style={{fontSize:'1.4em',cursor:'pointer'}}
+                        onClick={()=>{handleOptionClick(0,questions[cq].question_type)}}
+                    >{questions[cq].choices[0].text}</p>
                 </div>
                 <div className='answer-options'>
                     <input type={questions[cq].question_type==='single'?"radio":"checkbox"}
                      name="answer-options" checked={userClickedOptions[1] ? 'checked' : ''}
                      onChange={()=>{handleOptionClick(1,questions[cq].question_type)}}   
                      />
-                    <p>{questions[cq].choices[1].text}</p>
+                    <p style={{fontSize:'1.4em',cursor:'pointer'}}
+                        onClick={()=>{handleOptionClick(1,questions[cq].question_type)}}
+                    >{questions[cq].choices[1].text}</p>
                 </div>
                 <div className='answer-options'>
                     <input type={questions[cq].question_type==='single'?"radio":"checkbox"} 
                         name="answer-options" checked={userClickedOptions[2] ? 'checked' : ''}
                      onChange={()=>{handleOptionClick(2,questions[cq].question_type)}}
                     />
-                    <p>{questions[cq].choices[2].text}</p>
+                    <p style={{fontSize:'1.4em',cursor:'pointer'}}
+                        onClick={()=>{handleOptionClick(2,questions[cq].question_type)}}
+                    >{questions[cq].choices[2].text}</p>
                 </div>
                 <div className='answer-options'>
                     <input type={questions[cq].question_type==='single'?"radio":"checkbox"} 
                         name="answer-options" checked={userClickedOptions[3] ? 'checked' : ''}
                      onChange={()=>{handleOptionClick(3,questions[cq].question_type)}}
                     />
-                    <p>{questions[cq].choices[3].text}</p>
+                    <p style={{fontSize:'1.4em',cursor:'pointer'}}
+                        onClick={()=>{handleOptionClick(3,questions[cq].question_type)}}
+                    >{questions[cq].choices[3].text}</p>
                 </div>
               </div>
               <button 
@@ -281,7 +294,8 @@ export default function Quiz(props) {
                     questions[cq].choices[2].is_correct,
                     questions[cq].choices[3].is_correct
                 ],cq)}} 
-                className='submit'>{cq+1 < questions.length ? "Next" : "Finish" }</button>
+                className='submit'
+                style={{padding:'8px 14px',fontSize:'1em'}}>{cq+1 < questions.length ? "Next" : "Finish" }</button>
             </div>
           </>
         )}

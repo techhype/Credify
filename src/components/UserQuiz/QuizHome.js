@@ -10,7 +10,7 @@ const QuizHome = (props) => {
   let [category,setCategory] = useState(null);
   let [subcategory,setSubcategory] = useState(null);
   const [tests, setTests] = useState([]);
-  const GCPcategory = ['General','Compute Engine', 'App Engine', 'Cloud Functions', 'Cloud Storage','Kubernetes Engine','BigQuery']
+  const GCPcategory = ['General','IAM','Compute Engine', 'App Engine','Cloud Storage', 'Cloud Monitoring','Cloud Functions']
   const AWScategory = ['General','EC2', 'Elastic Beanstack', 'Lambda Functions'] 
   let  scategory;
   
@@ -53,7 +53,21 @@ const QuizHome = (props) => {
   return (
     <div className="quiz-home">
       {tests.length == 0 ? (
-        <div className="loading">Loading Quiz...</div>
+        <>
+        <form className="filter-form" onSubmit={handleFilter}>
+          <select name="category" onChange={(e)=>setCategory(e.target.value)}>
+          <option className='disabled' defaultValue value>Select CSP</option>
+            <option value="GCP">GCP</option>
+            <option value="AWS">AWS</option>
+          </select>
+          <select name="subcategory" onChange={(e)=>setSubcategory(e.target.value)}>
+          <option className='disabled' defaultValue value>Select a topic</option>
+          {scategory}
+          </select>
+          <input type="submit" className="submit filter-btn" value="Filter"/>
+        </form>
+        <div className="loading container">No Quizzes Yet...</div>
+        </>
       ) : (
         <>
         <form className="filter-form" onSubmit={handleFilter}>
