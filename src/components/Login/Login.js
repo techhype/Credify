@@ -71,9 +71,12 @@ const Login = () => {
         <input type='submit' value='Sign In' className='submit'/>
       </form>
       <Link to="/register" style={{ textDecoration: 'none' }}>
-        <button type='button' className='submit' style={{fontSize:'18px'}}>
+        <button type='button' className='submit forgot-password' style={{fontSize:'18px'}}>
       Create Account
       </button>
+      </Link>
+      <Link to="/forgotpw" style={{ textDecoration: 'none',fontSize:'18px',marginBottom:'20px'}}>
+      Forgot Password
       </Link>
       {
         error ? <p style={{color:"red"}}> {error} </p> : ''

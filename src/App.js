@@ -29,6 +29,7 @@ import QuizHistory from './components/QuizHistory/QuizHistory';
 import ListQuiz from './components/AdminQuiz/ListQuiz';
 import QuizStats from './components/QuizStats/QuizStats';
 import QuizCharts from './components/QuizStats/QuizCharts';
+import ForgotPW from './components/ForgotPW/ForgotPW';
 
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
       <PublicRoute restricted={false} component={Home} path="/" exact />
       <PublicRoute restricted={true} component={Register} path="/register" exact />
       <PublicRoute restricted={true} component={Login} path="/login" exact />
+      <PublicRoute restricted={true} component={ForgotPW} path="/forgotpw" exact />
       <AdminRoute component={AdminHome} path="/admin" exact />
       <AdminRoute component={AdminDashboard} path="/admindash" exact />
       <AdminRoute component={AdminAllCerts} path="/adminallcerts" exact />
