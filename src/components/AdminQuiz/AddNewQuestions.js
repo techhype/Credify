@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import {Link, useHistory} from 'react-router-dom'
 import {readExcelFile} from '../../utils/readExcel'
+import './AddNewQuestions.css'
+
 const AddNewQuestions = (props) => {
   const [isLoading,setIsLoading] = useState(true);
   const [isClicked,setIsClicked] = useState(false);
@@ -28,7 +30,13 @@ const AddNewQuestions = (props) => {
 
   return (
     <div className='container'>
-      <input type="file" accept=".xls,.xlsx" onChange={handleUploadFile}/>
+    <h1 style={{marginBottom:'100px'}}>Upload Questions</h1>
+    <div className='file-input'>
+      <input type="file" accept=".xls,.xlsx" id='excelfile' onChange={handleUploadFile} className='file'/>
+      <label htmlFor="excelfile">Upload Excel file
+      <img src='https://download.logo.wine/logo/Microsoft_Excel/Microsoft_Excel-Logo.wine.png'  id='excel'/>
+  </label>
+    </div>
     {
       !isClicked && (<>
         <h3>OR</h3>
