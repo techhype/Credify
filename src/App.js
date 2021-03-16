@@ -1,35 +1,35 @@
-import React from 'react';
-import { BrowserRouter as Router,Switch, Route } from 'react-router-dom';
-import Login from './components/Login/Login';
-import Register from './components/Register/Register';
-import Dashboard from './components/Dashboard/Dashboard';
-import Home from './components/Home/Home';
-import Upload from './components/Upload/Upload';
-import Profile from './components/Profile/Profile';
+import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
+import Login from './components/Login/Login'
+import Register from './components/Register/Register'
+import Dashboard from './components/Dashboard/Dashboard'
+import Home from './components/Home/Home'
+import Upload from './components/Upload/Upload'
+import Profile from './components/Profile/Profile'
 import AdminHome from './components/AdminHome/AdminHome'
 import AdminDashboard from './components/AdminDashboard/AdminDashboard'
 import AdminAllCerts from './components/AdminAllCerts/AdminAllCerts'
 import Users from './components/Users/Users'
 import UserCertificates from './components/UserCertificates/UserCertificates'
 // import SendMail from './components/SendMail/SendMail'
-import PrivateRoute from './routes/PrivateRoute';
-import PublicRoute from './routes/PublicRoute';
-import AdminRoute from './routes/AdminRoute';
-import AdminExpired from './components/AdminExpired/AdminExpired';
-import AdminExpiring from './components/AdminExpiring/AdminExpiring';
-import QuizHome from './components/UserQuiz/QuizHome' 
-import Quiz from './components/UserQuiz/Quiz' 
+import PrivateRoute from './routes/PrivateRoute'
+import PublicRoute from './routes/PublicRoute'
+import AdminRoute from './routes/AdminRoute'
+import AdminExpired from './components/AdminExpired/AdminExpired'
+import AdminExpiring from './components/AdminExpiring/AdminExpiring'
+import QuizHome from './components/UserQuiz/QuizHome'
+import Quiz from './components/UserQuiz/Quiz'
 import AdminFeedback from './components/AdminFeedback/AdminFeedback'
-import AddNewQuestions from './components/AdminQuiz/AddNewQuestions';
-import SetQuestions from './components/AdminQuiz/SetQuestions';
-import NewQuiz from './components/AdminQuiz/NewQuiz';
-import UserFeedback from './components/UserFeedback/UserFeedback';
-import QuizRankings from './components/QuizRankings/QuizRankings';
-import QuizHistory from './components/QuizHistory/QuizHistory';
-import ListQuiz from './components/AdminQuiz/ListQuiz';
-import QuizStats from './components/QuizStats/QuizStats';
-import QuizCharts from './components/QuizStats/QuizCharts';
-import ForgotPW from './components/ForgotPW/ForgotPW';
+import AddNewQuestions from './components/AdminQuiz/AddNewQuestions'
+import SetQuestions from './components/AdminQuiz/SetQuestions'
+import NewQuiz from './components/AdminQuiz/NewQuiz'
+import UserFeedback from './components/UserFeedback/UserFeedback'
+import QuizRankings from './components/QuizRankings/QuizRankings'
+import QuizHistory from './components/QuizHistory/QuizHistory'
+import ListQuiz from './components/AdminQuiz/ListQuiz'
+import QuizStats from './components/QuizStats/QuizStats'
+import QuizCharts from './components/QuizStats/QuizCharts'
+import ForgotPW from './components/ForgotPW/ForgotPW'
 
 
 const App = () => {
@@ -64,7 +64,7 @@ const App = () => {
       <PrivateRoute component={QuizRankings} path="/quizrankings" exact />
       <PrivateRoute component={QuizHistory} path="/quizhistory" exact />
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,19 +1,19 @@
 import React from 'react'
-import {isAdmin, isLogin} from '../../utils/index'
-import Login from '../Login/Login';
-import Dashboard from '../Dashboard/Dashboard';
-import AdminDashboard from '../AdminDashboard/AdminDashboard';
-import AdminNavbar from '../AdminNavbar';
+import { isAdmin, isLogin } from '../../utils/index'
+import Login from '../Login/Login'
+import Dashboard from '../Dashboard/Dashboard'
+import AdminDashboard from '../AdminDashboard/AdminDashboard'
+import AdminNavbar from '../AdminNavbar'
 
 
 
 const Home = () => {
   if(isAdmin() && isLogin())
     return (
-    <>
-    <AdminNavbar/>
-    <AdminDashboard />
-    </>
+      <>
+        <AdminNavbar/>
+        <AdminDashboard />
+      </>
     )
   else if(isLogin() && isAdmin()===false)
     return (
@@ -21,9 +21,9 @@ const Home = () => {
         <AdminNavbar />
         <Dashboard/>
       </>
-    ) 
-  else 
-    return <Login/>;
+    )
+  else
+    return <Login/>
 }
 
-export default Home;
+export default Home

@@ -3,10 +3,10 @@ import SendMail from '../SendMail/SendMail'
 import './Popup.css'
 
 const Popup = (props) => {
-  console.log(props.empid);
+  console.log(props.empid)
   const handleClick = () => {
-    props.setTrigger(false);
-    props.setEmpid('');
+    props.setTrigger(false)
+    props.setEmpid('')
   }
   return (props.trigger) ? (
     <div className="popup">
@@ -15,7 +15,7 @@ const Popup = (props) => {
         <SendMail empid={props.empid}/>
       </div>
     </div>
-  ) : "";
+  ) : ''
 }
 
-export default Popup;
+export default Popup
