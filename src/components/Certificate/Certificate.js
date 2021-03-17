@@ -11,8 +11,14 @@ import Azure from '../../img/Azure.png'
 
 
 const Certificate= (props) => {
-  const loc = useLocation().pathname
-  console.log('Certifcates.js props:',props)
+  let loc
+  try{
+    loc = useLocation().pathname
+  }
+  catch(e){
+    loc = null
+  }
+  // console.log('Certifcates.js props:',props)
   const difDate = (d2) => {
     var today = new Date()
     var dd = String(today.getDate()).padStart(2, '0')
@@ -25,7 +31,7 @@ const Certificate= (props) => {
     return diffDays
   }
   const { certs } = props
-  console.log(certs)
+  // console.log(certs)
   if(certs.length>0){
     return(
       certs.map((cert,i) => {
