@@ -50,7 +50,7 @@ const Register = () => {
           <label htmlFor="Name">Name</label>
           <input
             required
-            className='tinput'
+            className='tinput regName'
             type='text'
             name='Name'
             value={name}
@@ -58,7 +58,7 @@ const Register = () => {
           <label htmlFor="Email">Email</label>
           <input
             required
-            className='tinput'
+            className='tinput regEmail'
             type='email'
             name='Email'
             value={email}
@@ -66,7 +66,7 @@ const Register = () => {
           <label htmlFor="Password">Password</label>
           <input
             required
-            className='tinput'
+            className='tinput regPassword'
             type='password'
             name='Password'
             value={password}

@@ -59,6 +59,7 @@ const Login = () => {
             name='Email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            data-testid="email"
             required/>
           <label htmlFor="Password">Password</label>
           <input
@@ -67,8 +68,11 @@ const Login = () => {
             name='Password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            data-testid="password"
             required/>
-          <input type='submit' value='Sign In' className='submit'/>
+          <input type='submit' value='Sign In' className='submit'
+            data-testid='submitBtn'
+          />
         </form>
         <Link to="/register" style={{ textDecoration: 'none' }}>
           <button type='button' className='submit forgot-password' style={{ fontSize:'18px' }}>
