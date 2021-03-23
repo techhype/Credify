@@ -1,18 +1,24 @@
-FROM node:alpine
+FROM ubuntu
 
-WORKDIR '/app'
+# install our dependencies and nodejs
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get -y install python-software-properties git build-essential
+RUN add-apt-repository -y ppa:chris-lea/node.js
+RUN apt-get update
+RUN apt-get -y install nodejs
 
-# Install and configure `serve`.
-RUN npm install -g serve
-CMD serve -s build
-EXPOSE 5000
+# use changes to package.json to force Docker not to use the cache
+# when we change our application's nodejs dependencies:
+COPY package.json /tmp/package.json
+RUN cd /tmp && npm install
+RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
 
+# From here we load our application's code in, therefore the previous docker
+# "layer" thats been cached will be used if possible
+WORKDIR /opt/app
+COPY . /opt/app
 
-# Install all dependencies of the current project.
-COPY package.json package.json
-COPY npm-shrinkwrap.json npm-shrinkwrap.json
-RUN npm install
+EXPOSE 3000
 
-COPY . .
-
-RUN npm run build 
+CMD ["npm", "start"]
