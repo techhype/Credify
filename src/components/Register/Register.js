@@ -25,9 +25,9 @@ const Register = () => {
         console.log(JSON.stringify(response.data))
         history.push('/login')
       })
-      .catch(function (error) {
-        console.log(error.response.status,error.response.data.email)
-        Object.entries(error.response.data).forEach(([key,value]) => {
+      .catch(function (e) {
+        console.log(e.response.status,e.response.data.email)
+        Object.entries(e.response.data).forEach(([key,value]) => {
           setError(`${key.charAt(0).toUpperCase() + key.slice(1)} : ${value[0]}`)
         })
       })

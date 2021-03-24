@@ -2,7 +2,6 @@ import React from 'react'
 import { Bar } from 'react-chartjs-2'
 
 const LevelBarChart = (props) => {
-  console.log('Namebarchart',props)
   return (
     <>
       <br></br>

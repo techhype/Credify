@@ -26,8 +26,8 @@ const AdminExpiring = () => {
       .then(response => {
         console.log(response.data)
         getCerts(response.data)
-        const certs =  response.data
-        setCertids(certs.map(cert => cert.id))
+        const certificates =  response.data
+        setCertids(certificates.map(cert => cert.id))
       })
       .catch(function (error) {
         console.log(error.response.status,error.response)
