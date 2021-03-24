@@ -5,7 +5,7 @@ import './dashboard.css'
 import uploadImg from '../../img/upload.png'
 import profileImg from '../../img/certificates.png'
 import quizImg from '../../img/quiz.png'
-const Home = () => {
+const Dashboard = () => {
   return (
     <div className="dcontainer">
       <h1 id='dashboard-title'>Dashboard</h1>
@@ -35,4 +35,4 @@ const Home = () => {
 
 
 
-export default Home
+export default Dashboard

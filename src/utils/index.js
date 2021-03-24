@@ -32,7 +32,7 @@ export const isLogin = () => {
 
   if(token )
     return true
-  else
-    return false
+
+  return false
 }
 

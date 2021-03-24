@@ -15,7 +15,6 @@
   justify-content: center;
   align-items: center;
   margin-top: 40px;
-  width: auto;
   
 }
 
@@ -87,7 +86,6 @@
   border-radius: 5px;
   font-style: normal;
   font-weight: normal;
-  font-style: 10px;
   color: #c1c1c1;
   margin: 0 5px;
   /* transition: .5s; */

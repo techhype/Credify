@@ -27,8 +27,11 @@ const ForgotPW = () => {
           alert('Password Changed')
           history.goBack()
         })
-        .catch(function (error) {
-          console.log(error.response.status,error.response.data.email)
+        .catch(function (e) {
+          console.log(e.response)
+          Object.entries(e.response.data).forEach(([key,value]) => {
+            setError(`${key.charAt(0).toUpperCase() + key.slice(1)} : ${value[0]}`)
+          })
         })
     }else{
       alert('Passwords Dont Match.Please Check.')

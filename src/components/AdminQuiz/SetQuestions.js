@@ -17,7 +17,7 @@ const SetQuestions = (props) => {
   const [answerB, setAnswerB] = useState({ text:'',is_correct:false })
   const [answerC, setAnswerC] = useState({ text:'',is_correct:false })
   const [answerD, setAnswerD] = useState({ text:'',is_correct:false })
-  const [Questions,setQuestions,getQuestions] = useState([])
+  const [Questions,setQuestions] = useState([])
   const history = useHistory()
 
 
