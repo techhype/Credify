@@ -8,7 +8,7 @@ import quizImg from '../../img/quiz.png'
 const Dashboard = () => {
   return (
     <div className="dcontainer">
-      <h1 id='dashboard-title'>Dashboard</h1>
+      <h1 id='dashboard-title'>Credify Dashboard</h1>
       <div className="linkbtn">
         <div className='card card-3'>
           <Link to="/upload" style={{ textDecoration:'none' }}>
