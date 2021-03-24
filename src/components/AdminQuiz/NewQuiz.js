@@ -25,7 +25,7 @@ const NewQuiz = () => {
   const handleQuizSubmit = (e) => {
     e.preventDefault()
     console.log('Quiz Details',quizDetails)
-    const url = 'https://credify.tk/addquiz'
+    const url = 'http://35.232.17.192/addquiz'
 
     axios.post(url, quizDetails)
       .then(function (response) {

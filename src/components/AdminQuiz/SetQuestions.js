@@ -35,7 +35,7 @@ const SetQuestions = (props) => {
     const reqBody={ ...convertToObject(Questions),'quizid':quizid }
     console.log(reqBody)
 
-    const url = 'https://credify.tk/addquestions'
+    const url = 'http://35.232.17.192/addquestions'
 
     axios.post(url, reqBody)
       .then(function (response){

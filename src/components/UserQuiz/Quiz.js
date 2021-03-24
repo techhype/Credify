@@ -27,7 +27,7 @@ export default function Quiz(props) {
   // const [showFeedback, setShowFeedback] = useState(false);
 
 
-  const url = 'https://credify.tk/getquestions'
+  const url = 'http://35.232.17.192/getquestions'
 
   //console.log(id);
   const [questions, setQuestions] = useState([])
@@ -102,7 +102,7 @@ export default function Quiz(props) {
   }
 
   const finishQuiz = () => {
-    const url = 'https://credify.tk/quizresults'
+    const url = 'http://35.232.17.192/quizresults'
     var options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`
@@ -173,7 +173,7 @@ export default function Quiz(props) {
         const formData = new FormData()
         formData.append('report', pdf)
         formData.append('quiztakerid', pdfId)
-        const url = 'https://credify.tk/quizresultspdf'
+        const url = 'http://35.232.17.192/quizresultspdf'
         var options = {
           headers: {
             'Authorization': `TOKEN ${localStorage.getItem('token')}`

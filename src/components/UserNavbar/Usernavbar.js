@@ -20,7 +20,7 @@ const UserNavbar = () => {
       }
     }
 
-    const url = 'https://credify.tk/logout'
+    const url = 'http://35.232.17.192/logout'
     axios.post(url,null,options)
       .then(function () {
         setIsLoggedin(false)

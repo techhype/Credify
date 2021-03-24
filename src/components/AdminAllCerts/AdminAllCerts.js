@@ -16,7 +16,7 @@ const AdminAllCerts = (props) => {
   },[cspSelected,levelSelected,nameSelected,sbuSelected])
 
   const getUserCerts = () => {
-    const url = 'https://credify.tk/alluserscertificates'
+    const url = 'http://35.232.17.192/alluserscertificates'
     var options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`

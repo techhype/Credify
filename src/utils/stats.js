@@ -55,7 +55,7 @@ export const getStats = (
   setGCPCertNamesTotal,
   setAWSCertNamesTotal,
   setAzureCertNamesTotal) => {
-  const url = 'https://credify.tk/adminhome'
+  const url = 'http://35.232.17.192/adminhome'
   var options = {
     headers: {
       'Authorization': `TOKEN ${localStorage.getItem('token')}`
@@ -146,7 +146,7 @@ export {
 }
 
 export const getAllUsers = (setAllUsers) => {
-  const url = 'https://credify.tk/adminhome'
+  const url = 'http://35.232.17.192/adminhome'
   var options = {
     headers: {
       'Authorization': `TOKEN ${localStorage.getItem('token')}`
@@ -155,7 +155,7 @@ export const getAllUsers = (setAllUsers) => {
 
   axios.post(url,null,options)
     .then(res => {
-      return axios.post('https://credify.tk/allusers',{ userids:res.data.users_count },options)
+      return axios.post('http://35.232.17.192/allusers',{ userids:res.data.users_count },options)
         .then(responseData => {
           console.log(responseData)
           setAllUsers(responseData.data)
@@ -171,7 +171,7 @@ export const getAllUsers = (setAllUsers) => {
 }
 
 export const getQuizRank = (id,setRank) => {
-  const url = 'https://credify.tk/rankings'
+  const url = 'http://35.232.17.192/rankings'
   var options = {
     headers: {
       'Authorization': `TOKEN ${localStorage.getItem('token')}`

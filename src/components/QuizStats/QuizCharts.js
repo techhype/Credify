@@ -14,7 +14,7 @@ const QuizCharts = () => {
   const { id } = useParams()
   useEffect(() => {
     getQuizRank(id,setRank)
-    const url = 'https://credify.tk/adminquizstats'
+    const url = 'http://35.232.17.192/adminquizstats'
     var options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`
@@ -61,7 +61,7 @@ const QuizCharts = () => {
         const formData = new FormData()
         formData.append('stats',pdf)
         formData.append('userid',id)
-        const url = 'https://credify.tk/adminquizstatspdf'
+        const url = 'http://35.232.17.192/adminquizstatspdf'
         var options = {
           headers: {
             'Authorization': `TOKEN ${localStorage.getItem('token')}`

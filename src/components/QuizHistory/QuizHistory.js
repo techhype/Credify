@@ -11,7 +11,7 @@ const QuizHistory = () => {
     getquizHistory()
   },[])
   const getquizHistory = () => {
-    const url = 'https://credify.tk/quizresults'
+    const url = 'http://35.232.17.192/quizresults'
     var options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`

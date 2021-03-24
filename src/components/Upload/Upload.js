@@ -50,7 +50,7 @@ const Upload = () => {
 
 
 
-    const url = 'https://credify.tk/certificates'
+    const url = 'http://35.232.17.192/certificates'
     var options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`

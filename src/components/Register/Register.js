@@ -19,7 +19,7 @@ const Register = () => {
     const usercred = { empid, name, email, password }
     console.log('Register Button clicked')
 
-    const url= 'https://credify.tk/register'
+    const url= 'http://35.232.17.192/register'
     axios.post(url,usercred)
       .then(function (response) {
         console.log(JSON.stringify(response.data))

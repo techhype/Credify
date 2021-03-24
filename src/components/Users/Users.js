@@ -19,7 +19,7 @@ const Users = (props) => {
   let history=useHistory()
 
   useEffect(() => {
-    const url='https://credify.tk/allusers'
+    const url='http://35.232.17.192/allusers'
     var options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`

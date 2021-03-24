@@ -11,7 +11,7 @@ const AdminFeedback = () => {
 
   //useFetch and feedback details both are to be used with this
 
-  const url = 'https://credify.tk/feedback'
+  const url = 'http://35.232.17.192/feedback'
   var options = {
     headers: {
       'Authorization': `TOKEN ${localStorage.getItem('token')}`
@@ -35,7 +35,7 @@ const AdminFeedback = () => {
   const fbdelete = (id) => {
     console.log('delete button clicked :', id)
 
-    axios.delete('https://credify.tk/feedback', {
+    axios.delete('http://35.232.17.192/feedback', {
       data: {
         'feedbackid': id
       }

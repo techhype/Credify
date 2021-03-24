@@ -16,7 +16,7 @@ const AdminExpiring = () => {
   },[])
 
   const getUserCerts = () => {
-    const url = 'https://credify.tk/expiring'
+    const url = 'http://35.232.17.192/expiring'
     var options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`
@@ -40,7 +40,7 @@ const AdminExpiring = () => {
     setIsClicked(true)
   }
   const notifyAll = () => {
-    const url = 'https://credify.tk/sendmail'
+    const url = 'http://35.232.17.192/sendmail'
     var options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`

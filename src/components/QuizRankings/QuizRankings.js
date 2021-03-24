@@ -7,7 +7,7 @@ const QuizRankings = () => {
     getRankings()
   },[rankings])
   const getRankings = () => {
-    const url = 'https://credify.tk/rankings'
+    const url = 'http://35.232.17.192/rankings'
     var options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`
