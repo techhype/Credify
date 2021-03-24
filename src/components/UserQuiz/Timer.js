@@ -1,7 +1,7 @@
 import React,{ useState,useEffect } from 'react'
-const Timer = ({ seconds,finishQuiz,setShowScore }) => {
+const Timer = ({ second,finishQuiz,setShowScore }) => {
   // initialize timeLeft with the seconds prop
-  const [timeLeft, setTimeLeft] = useState(seconds)
+  const [timeLeft, setTimeLeft] = useState(second)
 
   useEffect(() => {
     // exit early when we reach 0

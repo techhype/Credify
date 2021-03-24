@@ -34,16 +34,14 @@
 .ic{
   position:relative;
   top:12px;
+  margin-right: 20px;
+  margin-left: 60px;
 
 }
 .ic .ma{
     display: inline-block;
 }
 
-.ic{
-    margin-right: 20px;
-    margin-left: 60px;
-}
 
 .ma{
     color:black;

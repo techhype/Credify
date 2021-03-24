@@ -64,9 +64,9 @@ const Upload = () => {
         document.getElementById('uploadform').reset()
         history.push('/dashboard')
       })
-      .catch(function (error) {
-        console.log(error.response)
-        Object.entries(error.response.data).forEach(([key,value]) => {
+      .catch(function (err){
+        console.log(err.response)
+        Object.entries(err.response.data).forEach(([key,value]) => {
           setError(`${key.charAt(0).toUpperCase() + key.slice(1)} : ${value[0]}`)
         })
       })
