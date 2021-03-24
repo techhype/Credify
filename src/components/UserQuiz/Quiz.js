@@ -236,7 +236,7 @@ export default function Quiz(props) {
       ) : (
         <>
           <div className="question-section quiz-container">
-            <Timer seconds={timelimit * 60}
+            <Timer second={timelimit * 60}
               finishQuiz={finishQuiz}
               setShowScore={setShowScore}
               totalQuestions={questions.length}

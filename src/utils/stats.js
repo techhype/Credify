@@ -152,19 +152,16 @@ export const getAllUsers = (setAllUsers) => {
       'Authorization': `TOKEN ${localStorage.getItem('token')}`
     }
   }
-  // const [response] = await Promise.all([
-  //   axios.get(`https://maps.googleapis.com/maps/api/geocode/json?&address=${this.props.p1}`),
-  // ]);
 
   axios.post(url,null,options)
-    .then(response => {
-      return axios.post('https://credify.tk/allusers',{ userids:response.data.users_count },options)
-        .then(response => {
-          console.log(response)
-          setAllUsers(response.data)
+    .then(res => {
+      return axios.post('https://credify.tk/allusers',{ userids:res.data.users_count },options)
+        .then(responseData => {
+          console.log(responseData)
+          setAllUsers(responseData.data)
         })
         .catch(function (error) {
-          console.log(error.response.status,error.response)
+          console.log(error.response)
         })
 
     })
