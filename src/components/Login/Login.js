@@ -36,9 +36,9 @@ const Login = () => {
         }
 
       })
-      .catch(function (e) {
-        console.log(e.response.status,e.response.data.email)
-        Object.entries(e.response.data).forEach(([key,value]) => {
+      .catch(function (err) {
+        console.log(err.response.status,err.response.data.email)
+        Object.entries(err.response.data).forEach(([key,value]) => {
           setError(`${key.charAt(0).toUpperCase() + key.slice(1)} : ${value[0]}`)
         })
       })
