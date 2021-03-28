@@ -1,6 +1,6 @@
 describe('Note app', function() {
   it('front page can be opened', function() {
-      cy.visit('http://34.122.145.124')
+      cy.visit('http://34.82.144.123')
     cy.contains('credify')
     
     cy.get('input:first').type('credifyadmin@virtusa.com')

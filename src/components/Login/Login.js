@@ -17,7 +17,7 @@ const Login = () => {
   const handleSubmit = async(e) => {
     e.preventDefault()
     const usercred ={ email,password }
-    const url= 'http://35.232.17.192/login'
+    const url= 'http://34.82.144.123/login'
     axios.post(url,usercred)
       .then(function (response) {
         console.log(response.status)

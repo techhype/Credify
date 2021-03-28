@@ -10,7 +10,7 @@ const Profile = () => {
   // const [email,setEmail] = useState('')
   useEffect(() => {
     getAllCerts()
-    // const Userurl = 'http://35.232.17.192/user';
+    // const Userurl = 'http://34.82.144.123/user';
     // const options = {
     //   headers: {
     //     'Authorization': `TOKEN ${localStorage.getItem('token')}`
@@ -34,7 +34,7 @@ const Profile = () => {
   },[])
 
   const getAllCerts = () => {
-    const Certurl = 'http://35.232.17.192/certificates'
+    const Certurl = 'http://34.82.144.123/certificates'
     const options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`

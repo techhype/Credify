@@ -27,7 +27,7 @@ export default function Quiz(props) {
   // const [showFeedback, setShowFeedback] = useState(false);
 
 
-  const url = 'http://35.232.17.192/getquestions'
+  const url = 'http://34.82.144.123/getquestions'
 
   //console.log(id);
   const [questions, setQuestions] = useState([])
@@ -102,7 +102,7 @@ export default function Quiz(props) {
   }
 
   const finishQuiz = () => {
-    const url = 'http://35.232.17.192/quizresults'
+    const url = 'http://34.82.144.123/quizresults'
     var options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`
@@ -173,7 +173,7 @@ export default function Quiz(props) {
         const formData = new FormData()
         formData.append('report', pdf)
         formData.append('quiztakerid', pdfId)
-        const url = 'http://35.232.17.192/quizresultspdf'
+        const url = 'http://34.82.144.123/quizresultspdf'
         var options = {
           headers: {
             'Authorization': `TOKEN ${localStorage.getItem('token')}`

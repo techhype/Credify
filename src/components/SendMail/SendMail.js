@@ -9,7 +9,7 @@ const SendMail = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const url = 'http://35.232.17.192/sendmail'
+    const url = 'http://34.82.144.123/sendmail'
     var options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`

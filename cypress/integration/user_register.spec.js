@@ -1,6 +1,6 @@
 describe('user Registration', function() {
   it('New User can be registered', function() {
-    cy.visit('http://34.122.145.124')
+    cy.visit('http://34.82.144.123')
     cy.contains('credify')
     cy.contains('Create Account').click()
     //change emp id while testing

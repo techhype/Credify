@@ -18,7 +18,7 @@ const QuizNavbar = () => {
       }
     }
 
-    const url = 'http://35.232.17.192/logout'
+    const url = 'http://34.82.144.123/logout'
     axios.post(url,null,options)
       .then(function () {
         setIsLoggedin(false)

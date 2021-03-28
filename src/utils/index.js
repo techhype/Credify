@@ -2,7 +2,7 @@ const TOKEN_KEY = 'token'
 
 // const getUser = async(token) => {
 
-//     const url='http://35.232.17.192/user'
+//     const url='http://34.82.144.123/user'
 //     var options = {
 //       headers: {
 //         'Authorization': `TOKEN ${token}`

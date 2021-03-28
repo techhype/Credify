@@ -14,7 +14,7 @@ const QuizCharts = () => {
   const { id } = useParams()
   useEffect(() => {
     getQuizRank(id,setRank)
-    const url = 'http://35.232.17.192/adminquizstats'
+    const url = 'http://34.82.144.123/adminquizstats'
     var options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`
@@ -61,7 +61,7 @@ const QuizCharts = () => {
         const formData = new FormData()
         formData.append('stats',pdf)
         formData.append('userid',id)
-        const url = 'http://35.232.17.192/adminquizstatspdf'
+        const url = 'http://34.82.144.123/adminquizstatspdf'
         var options = {
           headers: {
             'Authorization': `TOKEN ${localStorage.getItem('token')}`

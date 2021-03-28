@@ -36,7 +36,7 @@ it('changes value when clicked', () => {
     marks: 2,
     total_questions: 10,
   }
-  const url = 'http://35.232.17.192/addquiz'
+  const url = 'http://34.82.144.123/addquiz'
 
   axios.post(url, quizDetails)
     .then(function (response) {

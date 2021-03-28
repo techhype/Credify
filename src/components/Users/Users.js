@@ -19,7 +19,7 @@ const Users = (props) => {
   let history=useHistory()
 
   useEffect(() => {
-    const url='http://35.232.17.192/allusers'
+    const url='http://34.82.144.123/allusers'
     var options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`

@@ -16,7 +16,7 @@ const AdminAllCerts = (props) => {
   },[cspSelected,levelSelected,nameSelected,sbuSelected])
 
   const getUserCerts = () => {
-    const url = 'http://35.232.17.192/alluserscertificates'
+    const url = 'http://34.82.144.123/alluserscertificates'
     var options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`

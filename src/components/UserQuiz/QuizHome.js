@@ -21,7 +21,7 @@ const QuizHome = (props) => {
   const getQuiz = (category,subcategory) => {
     let reqbody=null
     reqbody = category && subcategory ? { category,subcategory } : category ? { category } : null
-    const url = 'http://35.232.17.192/getquiz'
+    const url = 'http://34.82.144.123/getquiz'
     var options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`

@@ -1,7 +1,7 @@
 describe('Forget password', function () {
     it('Changes new password and logs in with it ', function () {
         const new_password = 'kishore'
-        cy.visit('http://34.122.145.124')
+        cy.visit('http://34.82.144.123')
         cy.contains('credify')
         cy.contains('Forgot Password').click()
         cy.get('input[name="Email"]').type('akishore@virtusa.com')

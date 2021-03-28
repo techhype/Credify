@@ -11,7 +11,7 @@ const QuizHistory = () => {
     getquizHistory()
   },[])
   const getquizHistory = () => {
-    const url = 'http://35.232.17.192/quizresults'
+    const url = 'http://34.82.144.123/quizresults'
     var options = {
       headers: {
         'Authorization': `TOKEN ${localStorage.getItem('token')}`

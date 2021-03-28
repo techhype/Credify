@@ -35,7 +35,7 @@ const SetQuestions = (props) => {
     const reqBody={ ...convertToObject(Questions),'quizid':quizid }
     console.log(reqBody)
 
-    const url = 'http://35.232.17.192/addquestions'
+    const url = 'http://34.82.144.123/addquestions'
 
     axios.post(url, reqBody)
       .then(function (response){

@@ -19,7 +19,7 @@ const Register = () => {
     const usercred = { empid, name, email, password }
     console.log('Register Button clicked')
 
-    const url= 'http://35.232.17.192/register'
+    const url= 'http://34.82.144.123/register'
     axios.post(url,usercred)
       .then(function (response) {
         console.log(JSON.stringify(response.data))

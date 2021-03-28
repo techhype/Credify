@@ -5,7 +5,7 @@ import axios from 'axios'
 const ListQuiz = () => {
 
   const deleteQuiz = (quizid) => {
-    const url = 'http://35.232.17.192/deletequiz'
+    const url = 'http://34.82.144.123/deletequiz'
     axios.delete(url,{ headers:{ 'Authorization': `TOKEN ${localStorage.getItem('token')}` },data:{ quizid } })
       .then(response => {
         console.log(response)

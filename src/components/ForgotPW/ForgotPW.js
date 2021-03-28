@@ -20,7 +20,7 @@ const ForgotPW = () => {
     e.preventDefault()
     if(password.localeCompare(cpassword)===0){
       const usercred ={ email,password }
-      const url= 'http://35.232.17.192/changepassword'
+      const url= 'http://34.82.144.123/changepassword'
       axios.post(url,usercred)
         .then(function (response) {
           console.log(response.status)

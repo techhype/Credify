@@ -14,7 +14,7 @@ const UserFeedback = (props) => {
 
   const sendfeedback = () => {
 
-    const url = 'http://35.232.17.192/sendfeedback'
+    const url = 'http://34.82.144.123/sendfeedback'
 
     const feedbacksegment = {
       quiz,

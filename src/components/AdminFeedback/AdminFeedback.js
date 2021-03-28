@@ -11,7 +11,7 @@ const AdminFeedback = () => {
 
   //useFetch and feedback details both are to be used with this
 
-  const url = 'http://35.232.17.192/feedback'
+  const url = 'http://34.82.144.123/feedback'
   var options = {
     headers: {
       'Authorization': `TOKEN ${localStorage.getItem('token')}`
@@ -35,7 +35,7 @@ const AdminFeedback = () => {
   const fbdelete = (id) => {
     console.log('delete button clicked :', id)
 
-    axios.delete('http://35.232.17.192/feedback', {
+    axios.delete('http://34.82.144.123/feedback', {
       data: {
         'feedbackid': id
       }
